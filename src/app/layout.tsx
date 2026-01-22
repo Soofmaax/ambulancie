@@ -6,6 +6,7 @@ import { justRelaxData } from "@/lib/just-relax-data";
 import { SITE_URL, defaultLocale } from "@/lib/seo";
 import { getReservationInfo } from "@/lib/reservation";
 import SocialLinks from "@/components/SocialLinks";
+import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -221,6 +222,7 @@ export default function RootLayout({
           <main className="flex-1 px-2 py-4 sm:px-4 sm:py-6">
             {children}
           </main>
+          <CookieBanner />
           <footer className="border-t border-white/10 bg-black/70">
             <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8 sm:flex-row sm:justify-between sm:px-6">
               <div>
