@@ -176,7 +176,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   business: {
     brandName: "Ambulances Exemple",
-    baseline: "Ambulances & transport sanitaire non urgent",
+    baseline: "Transports sanitaires non urgents sur prescription médicale",
     legalName: "TODO – Raison sociale complète de la société d'ambulances",
     siret: "TODO – Numéro SIRET / numéro d'enregistrement",
     legalMentions:
@@ -189,7 +189,7 @@ export const siteConfig: SiteConfig = {
     emailSecondary: "",
     emergencyMessage: "En cas d'urgence vitale, appelez le 15 (SAMU) ou le 112.",
     nonEmergencyClarification:
-      "Ce site est dédié à l'organisation de transports sanitaires programmés et non urgents. Il ne permet pas de gérer les situations d'urgence vitale ni de délivrer de conseil médical.",
+      "Ce site est destiné à l'organisation de transports sanitaires programmés sur prescription médicale. Il ne permet pas de solliciter une prise en charge en urgence vitale ni de recevoir un avis médical.",
     address: {
       line1: "TODO – Adresse complète du siège ou de la base des ambulances",
       postalCode: "00000",
@@ -219,48 +219,48 @@ export const siteConfig: SiteConfig = {
         id: "ambulance",
         label: "Ambulance",
         description:
-          "Transport en position allongée ou semi-assise pour les patients nécessitant une surveillance rapprochée pendant le trajet.",
+          "Transport en position allongée ou semi-assise pour les patients nécessitant une surveillance pendant le trajet, conformément à la prescription médicale de transport.",
         enabled: true,
         bulletPoints: [
-          "Prise en charge sur prescription médicale de transport",
-          "Transport allongé ou semi-assis selon l'état du patient",
-          "Interventions pour hospitalisation, examens ou retour à domicile",
+          "Intervention réalisée sur la base d'une prescription médicale de transport",
+          "Position allongée ou semi-assise selon l'état de santé décrit par le prescripteur",
+          "Trajets liés à une hospitalisation, un examen ou un retour à domicile lorsque cela est médicalement indiqué",
         ],
       },
       {
         id: "vsl",
         label: "VSL (Véhicule Sanitaire Léger)",
         description:
-          "Transport assis dans un véhicule sanitaire adapté, pour les patients autonomes nécessitant un accompagnement vers un lieu de soins.",
+          "Transport assis dans un véhicule sanitaire adapté pour les patients autonomes nécessitant un accompagnement vers un lieu de soins, sur prescription médicale de transport.",
         enabled: true,
         bulletPoints: [
-          "Transport sanitaire assis sur prescription médicale",
-          "Idéal pour les séances de dialyse, les consultations régulières, la rééducation",
-          "Prise en charge possible selon les règles de l'Assurance Maladie",
+          "Transport sanitaire assis réalisé sur prescription médicale de transport",
+          "Adapté notamment aux séances de dialyse, aux consultations régulières ou à la rééducation",
+          "La prise en charge par l'Assurance Maladie dépend des conditions prévues par la réglementation en vigueur (à vérifier auprès de votre caisse)",
         ],
       },
       {
         id: "transport-assis",
         label: "Transport assis professionnalisé",
         description:
-          "Transport assis avec chauffeur formé aux spécificités du transport sanitaire, dans le respect des consignes médicales.",
+          "Transport assis avec conducteur formé aux spécificités du transport sanitaire, lorsque ce mode de transport est prévu par la prescription médicale ou retenu après échange avec le prescripteur.",
         enabled: true,
         bulletPoints: [
-          "Accompagnement jusqu'au service ou au cabinet médical si nécessaire",
-          "Prise en charge de personnes à mobilité réduite selon les possibilités du véhicule",
-          "Organisation claire des horaires de prise en charge",
+          "Accompagnement jusqu'au service ou au cabinet médical lorsque cela est prévu",
+          "Possibilité de prise en charge de personnes à mobilité réduite selon les capacités du véhicule",
+          "Organisation des horaires en cohérence avec l'heure de convocation",
         ],
       },
       {
         id: "transport-allonge",
         label: "Transport allongé non urgent",
         description:
-          "Transport allongé planifié à l'avance pour des rendez-vous médicaux, des retours à domicile ou des transferts entre établissements.",
+          "Transport allongé programmé à l'avance pour des rendez-vous médicaux, des retours à domicile ou des transferts entre établissements, lorsque l'état de santé le justifie.",
         enabled: true,
         bulletPoints: [
-          "Organisation du trajet en lien avec les équipes soignantes",
-          "Prise en charge adaptée au confort et à la sécurité du patient",
-          "Trajets inter-hospitaliers ou vers des structures de soins de suite",
+          "Coordination possible avec les équipes soignantes pour organiser le trajet",
+          "Prise en compte du confort et de la sécurité du patient pendant le transport",
+          "Transferts inter-établissements ou vers des structures de soins de suite, selon la prescription médicale",
         ],
       },
     ],
@@ -328,11 +328,11 @@ export const siteConfig: SiteConfig = {
         type: "ambulance",
         title: "Ambulances à Ville exemple – Transport sanitaire non urgent",
         intro:
-          "Organisation de transports en ambulance à Ville exemple et dans les communes voisines pour vos rendez-vous médicaux programmés.",
+          "Organisation de transports en ambulance à Ville exemple et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
         specificPoints: [
-          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile (selon prescription médicale).",
+          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
           "Intervention sur Ville exemple et les communes alentours, en lien avec les structures de santé locales.",
-          "Planification des trajets pour limiter l'attente et respecter les horaires de convocation.",
+          "Planification des trajets pour limiter l'attente et respecter les horaires de convocation lorsqu'elles sont fixées.",
         ],
       },
       {
@@ -342,11 +342,11 @@ export const siteConfig: SiteConfig = {
         title:
           "Transport sanitaire à Ville exemple – Ambulance, VSL & transport assis",
         intro:
-          "Solutions de transport sanitaire programmées à Ville exemple : ambulance, VSL et transport assis, adaptées à chaque situation médicale.",
+          "Solutions de transport sanitaire programmées à Ville exemple : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
         specificPoints: [
-          "Orientation vers le bon type de véhicule (ambulance, VSL ou transport assis) en fonction de la prescription.",
-          "Transports réguliers pour dialyse, rééducation ou consultations spécialisées.",
-          "Coopération avec les établissements de santé pour organiser les arrivées et les retours.",
+          "Orientation vers le type de véhicule (ambulance, VSL ou transport assis) correspondant à la prescription médicale.",
+          "Transports ponctuels ou réguliers pour dialyse, rééducation ou consultations spécialisées.",
+          "Coopération avec les établissements de santé pour organiser les arrivées et les retours dans la mesure du possible.",
         ],
       },
       {
@@ -356,11 +356,11 @@ export const siteConfig: SiteConfig = {
         title:
           "VSL à Ville exemple – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
         intro:
-          "Mise à disposition de VSL à Ville exemple pour les transports assis sur prescription médicale de transport.",
+          "Mise à disposition de VSL à Ville exemple pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
         specificPoints: [
           "Prise en charge assise pour les patients autonomes nécessitant un accompagnement.",
-          "Trajets pour consultations, bilans, séances de dialyse ou de rééducation.",
-          "Organisation possible de transports récurrents sur plusieurs semaines.",
+          "Trajets pour consultations, bilans, séances de dialyse ou de rééducation, selon les indications portées sur la prescription.",
+          "Organisation possible de transports récurrents sur plusieurs semaines lorsque cela est prévu.",
         ],
       },
     ],
@@ -371,25 +371,25 @@ export const siteConfig: SiteConfig = {
         id: "contact",
         title: "1. Prise de contact",
         description:
-          "Vous contactez le standard des ambulances par téléphone ou via le formulaire de demande de transport en précisant le motif, la date, les adresses et, si possible, la prescription médicale.",
+          "Vous contactez le standard des ambulances par téléphone ou via le formulaire de demande de transport en précisant le motif du déplacement, la date envisagée, les adresses de départ et de destination et, si possible, les références de la prescription médicale de transport.",
       },
       {
         id: "verification",
         title: "2. Vérification de la prise en charge",
         description:
-          "L'équipe vérifie avec vous la prescription médicale de transport, les conditions d'éligibilité et les modalités de prise en charge éventuelle par l'Assurance Maladie et/ou votre complémentaire santé.",
+          "L'équipe recueille les informations figurant sur la prescription médicale de transport et, à titre indicatif, vous rappelle les grands principes d'éligibilité et les modalités de prise en charge prévues par l'Assurance Maladie. En cas de question spécifique, il peut être nécessaire de vous rapprocher directement de votre caisse.",
       },
       {
         id: "organisation",
         title: "3. Organisation du véhicule et de l'horaire",
         description:
-          "En fonction de votre situation, un type de transport est proposé (ambulance, VSL ou transport assis). L'horaire de prise en charge est défini pour respecter au mieux l'heure de convocation.",
+          "En fonction des éléments médicaux mentionnés sur la prescription et des informations communiquées, un type de transport est proposé (ambulance, VSL ou transport assis). L'horaire de prise en charge est défini en visant la compatibilité avec votre heure de convocation.",
       },
       {
         id: "prise-en-charge",
         title: "4. Prise en charge le jour du transport",
         description:
-          "Le jour du rendez-vous, l'équipe arrive à l'adresse convenue, vous accompagne jusqu'au service ou au cabinet médical, puis organise le retour selon les modalités définies ensemble.",
+          "Le jour du rendez-vous, l'équipe se présente à l'adresse convenue, assure votre acheminement jusqu'au service ou au cabinet médical, puis organise le retour selon les modalités définies lorsque celui-ci est prévu.",
       },
     ],
     documents: [
@@ -419,7 +419,7 @@ export const siteConfig: SiteConfig = {
       conventionDetail:
         "Ces informations doivent être complétées et validées avec le client avant la mise en production du site.",
       transparencyNote:
-        "La prise en charge financière d'un transport sanitaire dépend de la prescription médicale de transport et des critères d'éligibilité définis par l'Assurance Maladie. En cas de doute, les équipes peuvent vous orienter vers les informations officielles, sans se substituer à un avis médical.",
+        "La prise en charge financière d'un transport sanitaire dépend de la prescription médicale de transport et des critères d'éligibilité définis par l'Assurance Maladie. En cas de doute, les équipes peuvent vous orienter vers les informations officielles, sans se substituer à un avis médical. La société d'ambulances ne se substitue ni au médecin prescripteur ni à l'Assurance Maladie pour l'appréciation finale de la prise en charge.",
     },
   },
   faq: [
@@ -427,7 +427,7 @@ export const siteConfig: SiteConfig = {
       id: "types-transport",
       question: "Quels types de transports sanitaires proposez-vous ?",
       answer:
-        "Selon la situation et la prescription médicale, différents types de transports peuvent être proposés : ambulance pour les transports allongés ou surveillés, VSL (Véhicule Sanitaire Léger) pour les transports assis sur prescription, et transport assis professionnalisé pour certaines situations particulières. Le standard vous aide à y voir clair lors de la prise de contact.",
+        "Selon la situation et la prescription médicale, différents types de transports peuvent être proposés : ambulance pour les transports allongés ou surveillés, VSL (Véhicule Sanitaire Léger) pour les transports assis sur prescription, et transport assis professionnalisé pour certaines situations particulières. Lors de la prise de contact, le standard peut vous expliquer quelle catégorie de transport correspond à la prescription.",
     },
     {
       id: "urgence-vs-non-urgence",
@@ -441,7 +441,7 @@ export const siteConfig: SiteConfig = {
       question:
         "Une prescription médicale est-elle nécessaire pour organiser un transport ?",
       answer:
-        "Dans la plupart des cas, oui. La prescription médicale de transport permet de déterminer le type de véhicule adapté et les conditions de prise en charge éventuelle par l'Assurance Maladie. Lors de votre appel, le standard vous indiquera les documents à préparer.",
+        "Dans la plupart des cas, oui. La prescription médicale de transport permet de déterminer le type de véhicule adapté et les conditions de prise en charge éventuelle par l'Assurance Maladie. Lors de votre appel, les équipes peuvent vous indiquer quels documents seront à présenter, sans se substituer aux indications de votre médecin prescripteur ni des organismes d'assurance maladie.",
     },
     {
       id: "zones-desservies",
@@ -461,30 +461,31 @@ export const siteConfig: SiteConfig = {
     requestTransport: {
       minSubmitDelayMs: 3000,
       rgpdConsentLabel:
-        "En envoyant ce formulaire, j’accepte que mes données soient utilisées uniquement pour traiter ma demande de transport sanitaire et pour me recontacter à ce sujet.",
+        "En envoyant ce formulaire, j’accepte que les informations saisies soient utilisées uniquement pour l'étude et le traitement de ma demande de transport sanitaire non urgent et, le cas échéant, pour être recontacté à ce sujet, dans le respect de la réglementation applicable en matière de protection des données personnelles.",
       privacyLink: "/protection-des-donnees",
       privacyLinkLabel: "En savoir plus sur la protection de vos données",
       successMessage:
-        "Votre demande de transport a bien été envoyée. Une personne de l’équipe vous recontactera au plus vite au numéro indiqué pour finaliser l’organisation du trajet.",
+        "Votre demande de transport a bien été envoyée. Un membre de l’équipe vous recontactera dans les meilleurs délais au numéro indiqué afin de préciser les modalités d’organisation du trajet.",
       errorMessage:
         "Une erreur est survenue lors de l’envoi du formulaire. Vous pouvez réessayer dans quelques instants ou nous contacter directement par téléphone.",
     },
     contact: {
       minSubmitDelayMs: 2000,
       rgpdConsentLabel:
-        "En envoyant ce formulaire, j’accepte que mes données soient utilisées uniquement pour répondre à ma demande de contact.",
+        "En envoyant ce formulaire, j’accepte que les informations saisies soient utilisées uniquement pour répondre à ma demande de contact, dans le respect de la réglementation applicable en matière de protection des données personnelles.",
       privacyLink: "/protection-des-donnees",
       privacyLinkLabel: "Détails sur la protection des données",
       successMessage:
-        "Votre message a bien été envoyé. Nous reviendrons vers vous dans les meilleurs délais.",
+        "Votre message a bien été envoyé. Nous reviendrons vers vous dans les meilleurs délais, par téléphone ou par e-mail selon les informations fournies.",
       errorMessage:
         "Une erreur est survenue lors de l’envoi du message. Vous pouvez réessayer ou privilégier un contact téléphonique.",
     },
   },
   seo: {
-    defaultTitle: "Ambulances & transport sanitaire – Site de démonstration",
+    defaultTitle:
+      "Ambulances & transports sanitaires non urgents – Exemple de site vitrine",
     defaultDescription:
-      "Site vitrine de démonstration pour une société d’ambulances et de transport sanitaire non urgent. Présentation des services, zones d’intervention, procédures de prise en charge et formulaire de demande de transport.",
+      "Site vitrine de démonstration pour une société d’ambulances et de transports sanitaires non urgents intervenant sur prescription médicale. Présentation des services, zones d’intervention, modalités d’organisation et formulaire de demande de transport.",
     keywords: [
       "ambulances",
       "transport sanitaire",

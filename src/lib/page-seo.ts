@@ -12,27 +12,27 @@ export const pageSeo = {
   services: {
     title: `Services d'ambulances & transport sanitaire – ${brand}`,
     description:
-      "Présentation détaillée des types de transports sanitaires proposés : ambulance, VSL (Véhicule Sanitaire Léger), transport assis professionnalisé et transports allongés non urgents.",
+      "Présentation détaillée des types de transports sanitaires proposés, conformément aux prescriptions médicales de transport : ambulance, VSL (Véhicule Sanitaire Léger), transport assis professionnalisé et transports allongés non urgents.",
   } as Metadata,
   priseEnCharge: {
     title: `Prise en charge & organisation du transport – ${brand}`,
     description:
-      "Étapes de prise en charge pour organiser un transport sanitaire non urgent : prise de contact, vérification de la prescription, choix du véhicule et déroulement du trajet.",
+      "Étapes de prise en charge pour organiser un transport sanitaire non urgent sur prescription médicale : prise de contact, recueil des informations figurant sur la prescription, choix du véhicule et déroulement du trajet.",
   } as Metadata,
   zones: {
     title: `Zones desservies – Ambulances & transport sanitaire autour de ${mainCity}`,
     description:
-      "Liste des principales zones d'intervention pour les transports sanitaires : commune de référence et communes voisines. Possibilité d'étudier certains trajets plus éloignés sur demande.",
+      "Liste des principales zones d'intervention pour les transports sanitaires non urgents : commune de référence et communes voisines. Certains trajets plus éloignés peuvent être étudiés au cas par cas, en fonction des disponibilités.",
   } as Metadata,
   demandeTransport: {
     title: `Demande de transport sanitaire – ${brand}`,
     description:
-      "Formulaire de demande de transport sanitaire non urgent : coordonnées, type de transport, date, départ et destination. Un membre de l'équipe vous recontacte pour finaliser l'organisation.",
+      "Formulaire permettant de transmettre les informations nécessaires à l'étude d'une demande de transport sanitaire non urgent : coordonnées, type de transport, date, départ et destination. Un membre de l'équipe recontacte l'usager pour préciser les modalités d'organisation.",
   } as Metadata,
   contact: {
     title: `Contact – ${brand}`,
     description:
-      "Coordonnées de la société d’ambulances (téléphone, e-mail, adresse) et formulaire de contact pour vos questions ou demandes d'informations complémentaires.",
+      "Coordonnées de la société d’ambulances (téléphone, e-mail, adresse) et formulaire de contact pour les questions relatives à l'organisation des transports sanitaires non urgents.",
   } as Metadata,
   mentionsLegales: {
     title: `Mentions légales – ${brand}`,
@@ -47,17 +47,17 @@ export const pageSeo = {
   localAmbulanceVilleExemple: {
     title: `Ambulances à Ville exemple – Transport sanitaire non urgent`,
     description:
-      "Page locale de démonstration pour les services d’ambulances à Ville exemple et dans les communes voisines, dans le cadre de transports sanitaires programmés.",
+      "Page locale de démonstration pour les services d’ambulances à Ville exemple et dans les communes voisines, dans le cadre de transports sanitaires programmés sur prescription médicale.",
   } as Metadata,
   localTransportSanitaireVilleExemple: {
     title:
       "Transport sanitaire à Ville exemple – Ambulance, VSL & transport assis",
     description:
-      "Page locale de démonstration présentant l'offre de transport sanitaire à Ville exemple : ambulance, VSL et transport assis professionnalisé pour les rendez-vous médicaux programmés.",
+      "Page locale de démonstration présentant l'offre de transport sanitaire à Ville exemple : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux programmés sur prescription.",
   } as Metadata,
   localVslVilleExemple: {
     title: "VSL à Ville exemple – Véhicule Sanitaire Léger",
     description:
-      "Page locale de démonstration pour le transport assis en VSL à Ville exemple, sur prescription médicale de transport.",
+      "Page locale de démonstration pour le transport assis en VSL à Ville exemple, sur prescription médicale de transport pour des rendez-vous médicaux programmés.",
   } as Metadata,
 };
