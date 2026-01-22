@@ -1,35 +1,63 @@
 import type { Metadata } from "next";
-import { justRelaxData } from "@/lib/just-relax-data";
+import { siteConfig } from "@data/site-config";
+
+const brand = siteConfig.business.brandName;
+const mainCity = siteConfig.zones.mainCity;
 
 export const pageSeo = {
-  menu: {
-    title: `Carte & menus – ${justRelaxData.name}, restaurant avec terrasse à ${justRelaxData.contact.address.city}`,
-    description:
-      "Découvrez la carte Just Menu, Just Boisson et Just Chicha : plats, boissons et chichas à Pantin (93500). Consultation confortable sur mobile grâce à la carte digitale et aux menus PDF.",
+  home: {
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.defaultDescription,
   } as Metadata,
-  galerie: {
-    title: `Galerie photos – ${justRelaxData.name} à ${justRelaxData.contact.address.city}`,
+  services: {
+    title: `Services d'ambulances & transport sanitaire – ${brand}`,
     description:
-      "Ambiance, terrasse privée, lounge, chicha et cocktails : parcourez les photos de Just Relax à Pantin et plongez dans l’atmosphère du restaurant & lounge.",
+      "Présentation détaillée des types de transports sanitaires proposés : ambulance, VSL (Véhicule Sanitaire Léger), transport assis professionnalisé et transports allongés non urgents.",
   } as Metadata,
-  accesHoraires: {
-    title: `Accès & horaires – ${justRelaxData.name}, restaurant à ${justRelaxData.contact.address.city} (93500)`,
+  priseEnCharge: {
+    title: `Prise en charge & organisation du transport – ${brand}`,
     description:
-      "Adresse, plan d’accès, horaires d’ouverture et informations pratiques pour venir chez Just Relax à Pantin, restaurant ouvert 7j/7 jusqu’à 2h du matin dans le 93.",
+      "Étapes de prise en charge pour organiser un transport sanitaire non urgent : prise de contact, vérification de la prescription, choix du véhicule et déroulement du trajet.",
+  } as Metadata,
+  zones: {
+    title: `Zones desservies – Ambulances & transport sanitaire autour de ${mainCity}`,
+    description:
+      "Liste des principales zones d'intervention pour les transports sanitaires : commune de référence et communes voisines. Possibilité d'étudier certains trajets plus éloignés sur demande.",
+  } as Metadata,
+  demandeTransport: {
+    title: `Demande de transport sanitaire – ${brand}`,
+    description:
+      "Formulaire de demande de transport sanitaire non urgent : coordonnées, type de transport, date, départ et destination. Un membre de l'équipe vous recontacte pour finaliser l'organisation.",
   } as Metadata,
   contact: {
-    title: `Contact & réservation – ${justRelaxData.name} à Pantin (93500)`,
+    title: `Contact – ${brand}`,
     description:
-      "Contactez Just Relax à Pantin pour une réservation, un événement privé ou une privatisation de restaurant avec terrasse. Téléphone, e-mail et formulaire de contact à votre disposition.",
+      "Coordonnées de la société d’ambulances (téléphone, e-mail, adresse) et formulaire de contact pour vos questions ou demandes d'informations complémentaires.",
   } as Metadata,
   mentionsLegales: {
-    title: `Mentions légales – ${justRelaxData.name} à Pantin`,
+    title: `Mentions légales – ${brand}`,
     description:
-      "Mentions légales et informations réglementaires concernant le site vitrine du restaurant & lounge Just Relax à Pantin (93500).",
+      "Mentions légales et informations réglementaires concernant le site vitrine de la société d’ambulances et de transport sanitaire.",
   } as Metadata,
-  evenements: {
-    title: `Privatisation & événements – ${justRelaxData.name} à Pantin`,
+  protectionDonnees: {
+    title: `Protection des données personnelles – ${brand}`,
     description:
-      "Privatisation de restaurant avec terrasse à Pantin (93500) pour anniversaires, afterworks, soirées d’entreprise et événements privés. Devis sur mesure et accueil jusqu’à 2h du matin.",
+      "Informations sur la collecte, l'utilisation et la conservation des données personnelles dans le cadre du site vitrine et des formulaires de contact / demande de transport.",
+  } as Metadata,
+  localAmbulanceVilleExemple: {
+    title: `Ambulances à Ville exemple – Transport sanitaire non urgent`,
+    description:
+      "Page locale de démonstration pour les services d’ambulances à Ville exemple et dans les communes voisines, dans le cadre de transports sanitaires programmés.",
+  } as Metadata,
+  localTransportSanitaireVilleExemple: {
+    title:
+      "Transport sanitaire à Ville exemple – Ambulance, VSL & transport assis",
+    description:
+      "Page locale de démonstration présentant l'offre de transport sanitaire à Ville exemple : ambulance, VSL et transport assis professionnalisé pour les rendez-vous médicaux programmés.",
+  } as Metadata,
+  localVslVilleExemple: {
+    title: "VSL à Ville exemple – Véhicule Sanitaire Léger",
+    description:
+      "Page locale de démonstration pour le transport assis en VSL à Ville exemple, sur prescription médicale de transport.",
   } as Metadata,
 };

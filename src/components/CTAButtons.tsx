@@ -1,60 +1,53 @@
-import type { JustRelaxData } from "@/lib/just-relax-schema";
-import { getReservationInfo } from "@/lib/reservation";
+import { siteConfig } from "@data/site-config";
 
 interface CTAButtonsProps {
-  data: JustRelaxData;
   layout?: "inline" | "stacked";
   /**
    * Contexte d'affichage :
-   * - "default" : tous les CTA (réserver, appeler, itinéraire, menu)
-   * - "hero" : mise en avant de 2 CTA principaux (Réserver / Appeler)
+   * - "default" : Appeler / Demande de transport / Itinéraire
+   * - "hero" : mise en avant de l'appel et de la demande de transport
    */
   context?: "default" | "hero";
 }
 
 export default function CTAButtons({
-  data,
   layout = "inline",
   context = "default",
 }: CTAButtonsProps) {
-  const phoneHref = data.contact.phoneMain
-    ? `tel:${data.contact.phoneMain.replace(/\s+/g, "")}`
+  const phoneHref = siteConfig.contact.phoneMain
+    ? `tel:${siteConfig.contact.phoneMain.replace(/\s+/g, "")}`
     : "#";
 
-  const mapHref = data.contact.address.mapUrl || "#";
-
-  const reservation = getReservationInfo(data.contact);
+  const mapHref = siteConfig.contact.address.mapUrl || "#";
 
   const baseClass =
-    "inline-flex items-center justify-center rounded-full text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
+    "inline-flex items-center justify-center rounded-full text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50";
 
   const primaryClass =
-    "bg-amber-400 px-4 py-2 text-slate-950 shadow-sm ring-1 ring-amber-300/70 hover:bg-amber-300 hover:ring-amber-200";
+    "bg-sky-700 px-4 py-2 text-white shadow-sm ring-1 ring-sky-600/70 hover:bg-sky-800 hover:ring-sky-700";
 
   const secondaryClass =
-    "border border-white/25 px-4 py-2 text-slate-100 hover:border-amber-300/80 hover:text-amber-200";
+    "border border-sky-200 px-4 py-2 text-sky-800 hover:border-sky-600 hover:text-sky-900";
 
   const layoutClass =
     layout === "stacked"
       ? "flex flex-col gap-3"
-      : "flex flex-wrap gap-3 items-center";
+      : "flex flex-wrap items-center gap-3";
 
   if (context === "hero") {
     return (
       <div className={layoutClass}>
         <a
-          href={reservation.href}
-          target={reservation.target}
-          rel={reservation.rel}
+          href={phoneHref}
           className={`${baseClass} ${primaryClass} text-sm sm:text-base px-6 py-2.5`}
         >
-          {reservation.label}
+          Appeler maintenant
         </a>
         <a
-          href={phoneHref}
+          href="/demande-transport"
           className={`${baseClass} ${secondaryClass} text-sm sm:text-base px-6 py-2.5`}
         >
-          Appeler
+          Demande de transport
         </a>
       </div>
     );
@@ -62,16 +55,14 @@ export default function CTAButtons({
 
   return (
     <div className={layoutClass}>
-      <a
-        href={reservation.href}
-        target={reservation.target}
-        rel={reservation.rel}
-        className={`${baseClass} ${primaryClass}`}
-      >
-        {reservation.label}
+      <a href={phoneHref} className={`${baseClass} ${primaryClass}`}>
+        Appeler maintenant
       </a>
-      <a href={phoneHref} className={`${baseClass} ${secondaryClass}`}>
-        Appeler
+      <a
+        href="/demande-transport"
+        className={`${baseClass} ${secondaryClass}`}
+      >
+        Demande de transport
       </a>
       <a
         href={mapHref}
@@ -80,9 +71,6 @@ export default function CTAButtons({
         className={`${baseClass} ${secondaryClass}`}
       >
         Itinéraire
-      </a>
-      <a href="/menu" className={`${baseClass} ${secondaryClass}`}>
-        Voir le menu
       </a>
     </div>
   );
