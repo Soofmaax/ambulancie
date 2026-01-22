@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL.replace(/\/$/, "");
   const now = new Date();
 
-  return [
+  const staticPaths: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
       lastModified: now,
@@ -13,34 +13,66 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/menu`,
+      url: `${baseUrl}/services`,
       lastModified: now,
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/galerie`,
+      url: `${baseUrl}/prise-en-charge`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.9,
     },
     {
-      url: `${baseUrl}/acces-horaires`,
+      url: `${baseUrl}/zones`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/demande-transport`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/evenements`,
+      url: `${baseUrl}/mentions-legales`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/protection-des-donnees`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/ambulance-ville-exemple`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.85,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/transport-sanitaire-ville-exemple`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/vsl-ville-exemple`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
     },
   ];
+
+  return staticPaths;
 }

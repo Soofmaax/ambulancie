@@ -1,303 +1,326 @@
-# Just Relax – Site vitrine maintenable
+# Site vitrine – Ambulances & transport sanitaire (Next.js / TypeScript / Tailwind)
 
-Ce projet est un site vitrine pour **Just Relax – Restaurant &amp; Lounge à Pantin**, conçu pour être facilement maintenable dans le temps, en particulier pour les aspects **contenu** et **SEO local**.
+Ce projet est un **site vitrine premium** pour une société d’ambulances / transport sanitaire, pensé pour :
 
-Ce document résume _où_ modifier quoi, sans avoir à rentrer dans tous les fichiers React/Next.
+- inspirer confiance dès le premier écran ;
+- rester clair et factuel (sans surpromesses) ;
+- être facile à maintenir (contenu, zones, services, SEO local) ;
+- optimiser la conversion vers l’**appel téléphonique**.
 
----
-
-## 1. Données métier (adresse, horaires, menus…)
-
-**Fichier :** `data/just-relax.json`  
-**Type :** données structurées (JSON)  
-**Importé via :** `src/lib/just-relax-data.ts`
-
-C’est la source de vérité pour :
-
-- Nom du restaurant, tagline
-- Description principale
-- Coordonnées (téléphone, e-mail, adresse, Google Maps)
-- Horaires d’ouverture
-- Services, moyens de paiement
-- Menus (PDF + structure détaillée)
-- Galerie photo
-- Références légales (raison sociale, SIRET, etc.)
-- SEO global (titre, description, mots-clés)
-
-> ✅ Pour changer un numéro de téléphone, une adresse, les horaires ou les liens PDF des menus, il suffit de modifier `data/just-relax.json`.
+Ce document explique _où_ modifier les informations métier et le contenu, sans devoir parcourir tout le code React.
 
 ---
 
-## 2. Réservation (WhatsApp / URL de réservation / téléphone)
+## 1. Données métier centrales (`data/site-config.ts`)
 
-**Fichier de configuration :** `data/just-relax.json`, bloc `contact` :
+**Fichier clé :** `data/site-config.ts`  
+**Type :** fichier TypeScript exportant un objet `siteConfig`.
 
-```jsonc
-"contact": {
-  "phoneMain": "+33148918366",
-  "phoneAlt": "+33634076140",
-  "whatsapp": "",
-  "email": "infos.justrelax@gmail.com",
-  "emailAlt": "marineranquet@yahoo.fr",
-  "googleReviewUrl": "",
-  "bookingUrl": "",
-  "address": { ... }
-}
-```
+C’est la **source de vérité** pour les informations suivantes :
 
-**Logique centralisée :** `src/lib/reservation.ts`
+- **Business / légal**
+  - `business.brandName`, `business.baseline`
+  - `business.legalName`, `business.siret`
+  - `business.legalMentions` (capital, RCS, etc. – placeholders à compléter)
+- **Coordonnées**
+  - `contact.phoneMain`, `contact.phoneSecondary`
+  - `contact.email`
+  - `contact.address` (ligne d’adresse, CP, ville, pays, URL Google Maps, latitude/longitude optionnelles)
+  - `contact.emergencyMessage` et `contact.nonEmergencyClarification` (messages affichés dans le bandeau d’urgence)
+- **Horaires**
+  - `openingHours`: tableau de plages `days + slots` (utilisé dans la home, la page contact, le JSON-LD)
+- **Services**
+  - `services.mainTypes`: Ambulance / VSL / transport assis / transport allongé (intitulés, descriptions, bullet points)
+  - `services.medicalMissions`: catégories de missions (consultations, dialyse, transferts, etc.)
+- **Zones**
+  - `zones.mainCity`: ville principale cible (placeholder)
+  - `zones.catchmentLabel`: description du secteur (agglomération, département…)
+  - `zones.items`: liste des communes desservies (placeholders à remplacer)
+  - `zones.localPagesExamples`: configuration des 3 pages locales SEO d’exemple :
+    - `/ambulance-ville-exemple`
+    - `/transport-sanitaire-ville-exemple`
+    - `/vsl-ville-exemple`
+- **Processus / prise en charge**
+  - `process.steps`: étapes du parcours (contact, vérification, organisation, transport)
+  - `process.documents`: documents à prévoir (prescription, carte Vitale, etc.)
+  - `process.billing`: placeholders sur le conventionnement / tiers payant / transparence
+- **FAQ**
+  - `faq`: liste de questions / réponses sur le transport sanitaire non urgent
+- **Formulaires**
+  - `forms.requestTransport`: textes RGPD, lien vers la page de protection des données, messages de succès/erreur, délai minimal anti-spam
+  - `forms.contact`: même logique pour le formulaire de contact
+- **SEO global**
+  - `seo.defaultTitle`, `seo.defaultDescription`
+  - `seo.keywords`: mots-clés principaux (à affiner une fois la zone réelle connue)
 
-- Si `whatsapp` est renseigné → CTA principal = **“Réserver sur WhatsApp”** (nouvelle fenêtre).
-- Sinon, si `bookingUrl` est renseigné → CTA principal = **“Réserver en ligne”**.
-- Sinon → fallback = **“Réserver par téléphone”** (`tel:`).
-
-Cette logique est utilisée automatiquement :
-
-- dans les boutons de réservation du **header** (`layout.tsx`),
-- dans tous les **CTA** via `CTAButtons.tsx`,
-- dans les sections “Réserver une table”.
-
-> ✅ Pour changer le canal de réservation, il suffit de modifier `whatsapp` ou `bookingUrl` dans `data/just-relax.json`.  
-> ✅ Pour changer l’ordre de priorité (WhatsApp vs booking), on adapte uniquement `src/lib/reservation.ts`.
+> ✅ Pour changer **nom de la société, téléphone, adresse, zones, services, FAQ, messages RGPD**, on modifie uniquement `data/site-config.ts`.
 
 ---
 
-## 3. SEO : titres et descriptions par page
+## 2. SEO & métadonnées par page
 
-### 3.1. SEO global du site
+### 2.1. SEO global
 
-**Fichier :** `data/just-relax.json`, bloc `seo` :
+**Fichier :** `data/site-config.ts`, bloc `seo`  
+**Utilisé dans :** `src/app/layout.tsx`
 
-```jsonc
-"seo": {
-  "title": "Just Relax – Restaurant & Lounge à Pantin",
-  "description": "Restaurant & lounge à Pantin avec terrasse privée, chicha, cocktails et ambiance conviviale...",
-  "keywords": [
-    "Just Relax",
-    "restaurant Pantin",
-    "lounge Pantin",
-    "chicha Pantin",
-    "terrasse privée",
-    "cocktails"
-  ]
-}
-```
+- `metadata.title` (Next.js)
+- `metadata.description`, `metadata.keywords`
+- `openGraph`
+- JSON-LD `MedicalBusiness` (schema.org) pour le référencement local.
 
-Utilisé dans :
-
-- `src/app/layout.tsx` via `metadata` (Next.js),
-- `openGraph`, JSON-LD Restaurant, sitemap, etc.
-
-### 3.2. SEO spécifique par page
+### 2.2. SEO spécifique par page
 
 **Fichier :** `src/lib/page-seo.ts`
 
-Contient les `Metadata` pour chaque page importante :
-
 ```ts
 export const pageSeo = {
-  menu: {
-    title: `Carte & menus – Just Relax à Pantin`,
-    description: "Découvrez la carte Just Menu, Just Boisson et Just Chicha...",
-  },
-  galerie: {
-    title: "Galerie photos – Just Relax",
-    description: "Ambiance, terrasse, lounge, chicha et cocktails...",
-  },
-  accesHoraires: {
-    title: "Accès & horaires – Just Relax à Pantin",
-    description: "Adresse, plan d’accès, horaires d’ouverture...",
-  },
-  contact: {
-    title: "Contact & réservation – Just Relax",
-    description: "Contactez Just Relax à Pantin pour une réservation...",
-  },
-  mentionsLegales: {
-    title: "Mentions légales – Just Relax",
-    description: "Mentions légales et informations réglementaires...",
-  },
+  home: { ... } as Metadata,
+  services: { ... } as Metadata,
+  priseEnCharge: { ... } as Metadata,
+  zones: { ... } as Metadata,
+  demandeTransport: { ... } as Metadata,
+  contact: { ... } as Metadata,
+  mentionsLegales: { ... } as Metadata,
+  protectionDonnees: { ... } as Metadata,
+  localAmbulanceVilleExemple: { ... } as Metadata,
+  localTransportSanitaireVilleExemple: { ... } as Metadata,
+  localVslVilleExemple: { ... } as Metadata,
 };
 ```
 
-Chaque page importe et expose son `metadata` :
+Chaque page importante importe son SEO :
 
-- `src/app/menu/page.tsx` → `export const metadata = pageSeo.menu;`
-- `src/app/galerie/page.tsx` → `metadata = pageSeo.galerie;`
-- `src/app/acces-horaires/page.tsx` → `metadata = pageSeo.accesHoraires;`
+- `src/app/page.tsx` → `metadata = pageSeo.home;`
+- `src/app/services/page.tsx` → `metadata = pageSeo.services;`
+- `src/app/prise-en-charge/page.tsx` → `metadata = pageSeo.priseEnCharge;`
+- `src/app/zones/page.tsx` → `metadata = pageSeo.zones;`
+- `src/app/demande-transport/page.tsx` → `metadata = pageSeo.demandeTransport;`
 - `src/app/contact/page.tsx` → `metadata = pageSeo.contact;`
 - `src/app/mentions-legales/page.tsx` → `metadata = pageSeo.mentionsLegales;`
+- `src/app/protection-des-donnees/page.tsx` → `metadata = pageSeo.protectionDonnees;`
+- pages locales (`/ambulance-ville-exemple`, etc.) → SEO dédiés.
 
-> ✅ Pour ajuster les titres et descriptions SEO par page, on modifie uniquement `src/lib/page-seo.ts`.
-
----
-
-## 4. Contenu éditorial de la page d’accueil
-
-La home est composée en grande partie de contenus éditoriaux faciles à modifier.
-
-### 4.1. Hero / textes généraux
-
-- Structure : `src/components/Hero.tsx`
-- Données utilisées : `justRelaxData` (nom, tagline, description, services, images)
-
-La plupart des textes du hero sont générés à partir de `data/just-relax.json`.  
-Pour changer la “phrase marketing” principale, on modifie `justRelaxData.description`.
-
-### 4.2. “Menu du moment” et “Avis clients”
-
-**Fichier :** `src/lib/home-content.ts`
-
-```ts
-export const menuDuMomentItems = [
-  {
-    name: "Planche à partager Just Relax",
-    description: "...",
-    price: "29,00 €",
-  },
-  ...
-];
-
-export const avisClientsExemples = [
-  {
-    name: "Samir",
-    source: "Exemple d'avis Google",
-    text: "Super ambiance...",
-  },
-  ...
-];
-```
-
-Utilisé dans `src/app/page.tsx` :
-
-```ts
-import {
-  menuDuMomentItems,
-  avisClientsExemples,
-} from "@/lib/home-content";
-
-{menuDuMomentItems.map(...)}
-{avisClientsExemples.map(...)}
-```
-
-> ✅ Pour changer les plats mis en avant ou les exemples d’avis, on édite **seulement** `home-content.ts`.
+> ✅ Pour ajuster les titres / descriptions SEO par page, on modifie `src/lib/page-seo.ts` (en s’appuyant sur `siteConfig`).
 
 ---
 
-## 5. Contenu éditorial de la page /menu
+## 3. Layout global, bandeau d’urgence & CTA
 
-**Fichier :** `src/lib/menu-content.ts`
+**Fichier :** `src/app/layout.tsx`
 
-Ce fichier définit la **carte digitale d’exemple** affichée sur `/menu` :
+- Header avec :
+  - nom commercial (`siteConfig.business.brandName`),
+  - baseline (`siteConfig.business.baseline`),
+  - navigation principale (Accueil, Services, Prise en charge, Zones, Demande de transport, Contact),
+  - CTA **“Appeler maintenant”**.
+- Bandeau informatif sous le header :
+  - `siteConfig.contact.emergencyMessage`  
+  - `siteConfig.contact.nonEmergencyClarification`  
+  → rappelle de manière claire : **urgence vitale = 15 / 112**, site réservé aux transports non urgents.
+- Footer :
+  - coordonnées (adresse, téléphone, e-mail),
+  - mentions légales / protection des données,
+  - placeholders pour les informations juridiques exactes.
 
-```ts
-export const digitalMenuCategories = [
-  {
-    id: "entrees-demo",
-    name: "Entrées",
-    items: [
-      { name: "Carpaccio de bœuf mariné", description: "...", price: "13,00 €" },
-      ...
-    ],
-  },
-  {
-    id: "plats-demo",
-    name: "Plats",
-    items: [ ... ],
-  },
-  {
-    id: "desserts-demo",
-    name: "Desserts",
-    items: [ ... ],
-  },
-];
-```
-
-Utilisé dans `src/app/menu/page.tsx` :
-
-```ts
-import { digitalMenuCategories } from "@/lib/menu-content";
-
-{digitalMenuCategories.map((category) => (
-  <MenuItemCard ... />
-))}
-```
-
-> ✅ Pour adapter la carte digitale (texte & prix), sans toucher au JSX, on modifie `menu-content.ts`.
-
-Pour le reste :
-
-- Les menus officiels PDF sont définis dans `data/just-relax.json` → `menus[].pdfUrl`.
-- La page `/menu` les affiche automatiquement via `justRelaxData.menus`.
+Un **bouton flottant “Appeler maintenant”** est affiché en bas d’écran sur mobile (CTA principal).
 
 ---
 
-## 6. Pages de contenu (galerie, accès, contact, mentions légales)
+## 4. Pages principales
 
-Les pages :
+### 4.1. Accueil `/`
 
-- `/galerie` → `src/app/galerie/page.tsx`
-- `/acces-horaires` → `src/app/acces-horaires/page.tsx`
-- `/contact` → `src/app/contact/page.tsx`
-- `/mentions-legales` → `src/app/mentions-legales/page.tsx`
+**Fichier :** `src/app/page.tsx`
 
-suivent toutes la même logique :
+Sections :
 
-- Structure : composant `Section` pour l’encadré.
-- Données “dynamiques” (adresse, horaires, etc.) : `justRelaxData`.
-- Textes libres : directement dans le JSX, faciles à éditer (1–3 paragraphes).
+- **Hero** (`<Hero />`)
+  - H1 : `Ambulances & transport sanitaire à [Ville principale]`
+  - CTA : Appeler maintenant / Demande de transport
+  - Rappel synthétique des horaires et coordonnées.
+- **Services** (extrait de `siteConfig.services.mainTypes`)
+- **Zones desservies** (extrait de `siteConfig.zones`)
+- **Prise en charge** (résumé des étapes `siteConfig.process.steps`)
+- **FAQ** (questions / réponses `siteConfig.faq`, avec schema.org FAQPage)
+- **Contact rapide** (coordonnées + horaires, `OpeningHours`)
 
-Les mentions légales utilisent aussi `justRelaxData.legal` pour les infos société.
+> ✅ Tout le contenu “business” de la home (services, zones, FAQ…) vient de `siteConfig`.
 
-> ✅ Pour changer un texte de présentation (ex. paragraphe d’intro de la galerie ou du contact), on édite directement le JSX de la page concernée.  
-> ✅ Pour changer une info légale (raison sociale, SIRET, etc.), on modifie uniquement `data/just-relax.json`.
+### 4.2. Services `/services`
+
+**Fichier :** `src/app/services/page.tsx`
+
+- Présentation détaillée des **types de transport** : ambulance, VSL, transport assis, etc.  
+- Liste des **missions** (consultations, dialyse, transferts, rééducation) depuis `siteConfig.services.medicalMissions`.
+
+### 4.3. Prise en charge `/prise-en-charge`
+
+**Fichier :** `src/app/prise-en-charge/page.tsx`
+
+- Étapes du **processus de prise en charge** (`siteConfig.process.steps`).
+- Bloc “Documents à prévoir” (`siteConfig.process.documents`).
+- Bloc “Conventionnement & tiers payant” (`siteConfig.process.billing` – placeholders à compléter et valider).
+
+### 4.4. Zones `/zones`
+
+**Fichier :** `src/app/zones/page.tsx`
+
+- Liste des **zones desservies** (`siteConfig.zones.items`).
+- Carte Google via `MapEmbed` (URL depuis `siteConfig.contact.address.mapUrl`).
+- Rappel des **pages locales SEO d’exemple** (liens vers les 3 pages `/ambulance-ville-exemple`, etc.).
+
+### 4.5. Demande de transport `/demande-transport`
+
+**Fichier :** `src/app/demande-transport/page.tsx`
+
+Formulaire dédié aux **transports sanitaires non urgents** :
+
+Champs :
+
+- Nom (optionnel),
+- Téléphone (obligatoire),
+- E-mail (optionnel),
+- Type de transport souhaité,
+- Date / heure,
+- Adresse de départ / destination,
+- Position (assis / allongé / à définir),
+- Commentaire libre.
+
+Fonctionnalités :
+
+- **Honeypot** (`website`) pour filtrer les robots.
+- **Délai minimal anti-spam** (serveur) via jeton signé (`createFormTimeToken` / `verifyFormTimeToken`).
+- Case de **consentement RGPD** + lien vers `/protection-des-donnees` :
+  - textes dans `siteConfig.forms.requestTransport`.
+
+Traitement :
+
+- Soumission en `POST` vers `POST /api/request` (voir §5).
+
+### 4.6. Contact `/contact`
+
+**Fichier :** `src/app/contact/page.tsx`
+
+- Coordonnées complètes (téléphone, e-mail, adresse).
+- CTA “Appeler maintenant” + boutons principaux (`CTAButtons`).
+- Formulaire de contact léger (nom, e-mail, téléphone, message) :
+  - même logique anti-spam / RGPD que la demande de transport,
+  - `formType="contact"` → traité par `POST /api/request`.
+
+### 4.7. Mentions légales `/mentions-legales`
+
+**Fichier :** `src/app/mentions-legales/page.tsx`
+
+- Utilise `siteConfig.business` + `siteConfig.contact` pour structurer :
+  - éditeur du site,
+  - coordonnées,
+  - informations juridiques (placeholders à compléter),
+  - hébergement (à préciser une fois l’hébergeur choisi).
+
+### 4.8. Protection des données `/protection-des-donnees`
+
+**Fichier :** `src/app/protection-des-donnees/page.tsx`
+
+- Base de texte pour le **RGPD** :
+  - responsable de traitement,
+  - finalités,
+  - base légale (consentement),
+  - destinataires,
+  - durée de conservation (à préciser),
+  - droits des personnes,
+  - sécurité des données.
+
+> ✅ Cette page doit être relue et complétée avec le client (et, si nécessaire, un conseil juridique) avant mise en production.
 
 ---
 
-## 7. Composants clés
+## 5. API & envoi d’e-mails (`POST /api/request`)
+
+**Route :** `src/app/api/request/route.ts`  
+**Bibliothèque :** `src/lib/email.ts` (Nodemailer)  
+**Anti-spam :** `src/lib/anti-spam.ts`
+
+### 5.1. Anti-spam
+
+- Honeypot `website` (doit rester vide).
+- Délai minimal entre génération du formulaire et soumission :
+  - `siteConfig.forms.requestTransport.minSubmitDelayMs`
+  - `siteConfig.forms.contact.minSubmitDelayMs`
+- Jeton signé côté serveur :
+
+  - `createFormTimeToken(Date.now())` → inséré en champ caché `formTimeToken`.
+  - `verifyFormTimeToken(token, minDelayMs)` côté API :
+    - vérification signature,
+    - vérification délai minimal.
+
+### 5.2. Envoi d’e-mails
+
+**Config :** `src/lib/email.ts` (Nodemailer)
+
+Variables d’environnement attendues :
+
+```bash
+SMTP_HOST=...
+SMTP_PORT=587 # ou 465 si TLS direct
+SMTP_USER=...
+SMTP_PASS=...
+
+# Optionnels (fallback sur siteConfig.contact.email / SMTP_USER)
+FORM_EMAIL_TO=contact@exemple.fr
+FORM_EMAIL_FROM=site@exemple.fr
+```
+
+Comportement :
+
+- Si SMTP est **configuré** → envoie un e-mail texte avec :
+  - type de formulaire (demande de transport / contact),
+  - coordonnées,
+  - détails du trajet (le cas échéant),
+  - commentaire,
+  - statut du consentement RGPD.
+- Si SMTP n’est **pas configuré** → ne plante pas :
+  - log du contenu dans la console (`console.log`),
+  - message de warning clair.
+
+> ✅ Le traitement des formulaires est centralisé dans `POST /api/request`.  
+> ✅ Le front ne fait qu’un `POST` HTML standard (aucun JavaScript client n’est requis).
+
+---
+
+## 6. Composants de design & accessibilité
 
 Les composants principaux sont dans `src/components/` :
 
-- `Hero.tsx` – section d’intro de la home.
+- `Hero.tsx` – section d’intro (H1, CTA, rappel des horaires / coordonnées).
 - `Section.tsx` – wrapper pour les sections (titre, eyebrow, CTA).
-- `CTAButtons.tsx` – boutons Appeler / Réserver / Itinéraire / Menu.
-- `OpeningHours.tsx` – rendu des horaires à partir de `openingHours`.
-- `GalleryGrid.tsx` – grille de photos à partir de `gallery`.
-- `MenuItemCard.tsx` – rendu d’un plat/entrée/dessert.
-- `MapEmbed.tsx` – intégration de la carte Google.
-- `SocialLinks.tsx` – rendu des liens sociaux (Facebook, Instagram, TikTok) en mode **préproduction** ou **production**.
+- `CTAButtons.tsx` – CTA transverses :
+  - Appeler maintenant,
+  - Demande de transport,
+  - Itinéraire.
+- `OpeningHours.tsx` – rendu accessible des horaires à partir de `siteConfig.openingHours`.
+- `MapEmbed.tsx` – carte Google Maps (iframe accessible).
+- `SocialLinks.tsx` – place pour de futurs liens (site principal, fiche établissement, etc.).
 
-> ✅ Modifier ces composants change **le design global**.  
-> ✅ Modifier les fichiers `lib/` change plutôt **le contenu et la logique métier**.
-
----
-
-## 8. Réseaux sociaux (Instagram & co.)
-
-**Données :** `social` dans `data/just-relax.json` :
-
-```jsonc
-"social": {
-  "facebook": "",
-  "instagram": "",
-  "tiktok": ""
-}
-```
-
-**Composant :** `src/components/SocialLinks.tsx`, utilisé dans le footer (`layout.tsx`) :
-
-- En **mode préproduction** (`<SocialLinks social={justRelaxData.social} demo />`) :
-  - Affiche des pastilles “Instagram”, “Facebook”, “TikTok” non cliquables tant que les URLs sont vides.
-  - Un texte indique que les liens officiels seront ajoutés plus tard.
-- En **mode production** (si `demo` est `false`) :
-  - Affiche uniquement les réseaux dont l’URL est renseignée.
-  - Chaque pastille est cliquable et ouvre le réseau social correspondant dans un nouvel onglet.
-
-> ✅ Pour activer les vrais liens, il suffit de remplir les champs dans `data/just-relax.json` (`social.instagram`, etc.).  
-> ✅ Le JSON-LD ne déclarera ces liens (`sameAs`) que s’ils ne sont pas vides.
+> ✅ Modifier ces composants impacte le **design global**, mais pas les données métier.
 
 ---
 
-## 9. Variables d’environnement
+## 7. SEO technique : sitemap, robots, JSON-LD, FAQ schema
+
+- `src/app/robots.ts` – robots.txt généré par Next.js.
+- `src/app/sitemap.ts` – sitemap incluant :
+  - pages principales (`/`, `/services`, `/prise-en-charge`, `/zones`, `/demande-transport`, `/contact`, `/mentions-legales`, `/protection-des-donnees`),
+  - pages locales d’exemple :
+    - `/ambulance-ville-exemple`
+    - `/transport-sanitaire-ville-exemple`
+    - `/vsl-ville-exemple`
+- `src/app/layout.tsx` – JSON-LD **MedicalBusiness** (schema.org) pour le référencement local.
+- `src/app/page.tsx` – JSON-LD **FAQPage** généré à partir de `siteConfig.faq`.
+
+---
+
+## 8. Variables d’environnement (général)
 
 **Fichier :** `src/lib/seo.ts`
 
@@ -308,30 +331,32 @@ export const SITE_URL =
 export const defaultLocale = "fr-FR";
 ```
 
-En production, il faut définir :
+En production, définir :
 
 ```bash
-NEXT_PUBLIC_SITE_URL="https://ton-domaine-ou-url-preview.com"
+NEXT_PUBLIC_SITE_URL="https://ton-domaine-production.com"
 ```
 
 pour que :
 
-- les liens du sitemap,
+- le sitemap,
 - les tags OpenGraph,
-- le JSON-LD schema.org “Restaurant”
+- le JSON-LD schema.org
 
 pointent vers la bonne URL.
 
 ---
 
-## 9. En résumé
+## 9. Résumé pratique
 
-- **Données métier & coordonnées** → `data/just-relax.json`
-- **Canal de réservation & libellés CTA** → `data/just-relax.json` + `src/lib/reservation.ts`
-- **SEO global** → `data/just-relax.json` (`seo`)
+- **Données métier & coordonnées** → `data/site-config.ts`
+- **Services, zones, FAQ, process** → `data/site-config.ts`
+- **SEO global** → `data/site-config.ts` (`seo`)
 - **SEO par page** → `src/lib/page-seo.ts`
-- **Home – menu du moment & avis** → `src/lib/home-content.ts`
-- **Menu – carte digitale** → `src/lib/menu-content.ts`
-- **Textes de pages** → fichiers `src/app/.../page.tsx`
+- **Formulaires & e-mails** → `src/app/api/request/route.ts` + `src/lib/email.ts` + `src/lib/anti-spam.ts`
+- **Textes de pages** → fichiers `src/app/.../page.tsx` (structure + wording d’encadrement)
 
-Avec cette organisation, tu peux faire évoluer le site (texte, SEO, réservation) rapidement, sans devoir refactorer tout le code React à chaque fois.
+Avec cette organisation :
+
+- tu peux ajuster le **positionnement**, les **zones desservies**, les **services**, la **FAQ**, le **RGPD** et les **CTA** en éditant principalement `data/site-config.ts` et `src/lib/page-seo.ts` ;
+- le code reste orienté **accessibilité**, **clarté** et **conversion par appel**, sans promesses excessives ni logique métier dispersée dans les composants.

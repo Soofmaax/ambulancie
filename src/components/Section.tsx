@@ -20,36 +20,34 @@ export default function Section({
   background = "default",
   cta,
 }: SectionProps) {
+  const containerClassName =
+    background === "subtle"
+      ? "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+      : "space-y-6";
+
   return (
-    <section
-      id={id}
-      className={
-        background === "subtle"
-          ? "rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/40 sm:p-8"
-          : "space-y-6"
-      }
-    >
+    <section id={id} className={containerClassName}>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
         <div>
           {eyebrow && (
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-300">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
               {eyebrow}
             </p>
           )}
-          <h2 className="mt-1 text-xl font-semibold tracking-tight text-slate-50 sm:text-2xl">
+          <h2 className="mt-1 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
             {title}
           </h2>
         </div>
         {cta && (
           <a
             href={cta.href}
-            className="mt-2 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-1.5 text-xs font-medium text-slate-100/90 transition hover:border-amber-300/80 hover:text-amber-200 sm:mt-0"
+            className="mt-2 inline-flex items-center justify-center rounded-full border border-sky-200 px-4 py-1.5 text-xs font-semibold text-sky-800 transition hover:border-sky-600 hover:text-sky-900 sm:mt-0"
           >
             {cta.label}
           </a>
         )}
       </div>
-      <div className="mt-4">{children}</div>
+      <div className="mt-4 text-sm text-slate-800">{children}</div>
     </section>
   );
 }

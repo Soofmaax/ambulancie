@@ -6,12 +6,10 @@ interface MapEmbedProps {
 export default function MapEmbed({ mapUrl, title }: MapEmbedProps) {
   const isGoogleMap = mapUrl.includes("google.com/maps");
 
-  const embedUrl = isGoogleMap
-    ? `${mapUrl}&output=embed`
-    : mapUrl;
+  const embedUrl = isGoogleMap ? `${mapUrl}&output=embed` : mapUrl;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-lg shadow-black/50">
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <iframe
         title={title || "Plan d'accès"}
         src={embedUrl}
