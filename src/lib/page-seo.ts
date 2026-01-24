@@ -22,7 +22,7 @@ export const pageSeo = {
   zones: {
     title: `Zones desservies – Ambulances & transport sanitaire autour de ${mainCity} (Oise 60)`,
     description:
-      "Présentation des principales zones d'intervention pour les transports sanitaires non urgents : Saint-Crépin-Ibouvillers, Méru, Neuilly-en-Thelle, Chambly et communes voisines dans le sud de l'Oise (60). Certains trajets plus éloignés peuvent être étudiés au cas par cas, en fonction des disponibilités.",
+      "Présentation des principales zones d'intervention pour les transports sanitaires non urgents : Saint-Crépin-Ibouvillers, Méru, Neuilly-en-Thelle, Chambly et communes voisines dans le sud de l'Oise (60), avec des interventions possibles vers l'Île-de-France (Paris et départements limitrophes) selon les besoins et les disponibilités.",
   } as Metadata,
   demandeTransport: {
     title: `Demande de transport sanitaire – ${brand}`,

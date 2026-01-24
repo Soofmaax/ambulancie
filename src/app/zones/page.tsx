@@ -21,9 +21,11 @@ export default function ZonesPage() {
             <p>
               La société d&apos;ambulances intervient principalement sur{" "}
               <strong>{siteConfig.zones.mainCity}</strong> et les communes
-              voisines listées ci-dessous. Cette liste est fournie à titre
-              d&apos;exemple et doit être complétée avec les zones exactes
-              d&apos;intervention.
+              voisines listées ci-dessous. Elle peut également, selon les
+              besoins et les disponibilités, organiser des transports vers
+              l&apos;Île-de-France (Paris et départements limitrophes). Cette
+              liste est fournie à titre d&apos;exemple et doit être complétée
+              avec les zones exactes d&apos;intervention.
             </p>
             <ul className="mt-2 grid gap-1 text-sm text-slate-800 sm:grid-cols-2">
               {siteConfig.zones.items.map((zone) => (

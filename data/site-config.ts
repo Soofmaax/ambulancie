@@ -311,7 +311,7 @@ export const siteConfig: SiteConfig = {
   zones: {
     mainCity: "Saint-Crépin-Ibouvillers",
     catchmentLabel:
-      "Secteur de Saint-Crépin-Ibouvillers et des communes voisines, dans le département de l'Oise (60), à proximité de Méru, Neuilly-en-Thelle, Chambly et du sud du département.",
+      "Secteur de Saint-Crépin-Ibouvillers et des communes voisines, dans le département de l'Oise (60), avec des interventions régulières vers l'Île-de-France (Paris et départements limitrophes).",
     items: [
       {
         slug: "saint-crepin-ibouvillers",
@@ -341,6 +341,11 @@ export const siteConfig: SiteConfig = {
       {
         slug: "autres-communes-oise-sud",
         label: "Autres communes du sud de l'Oise (60) – à préciser avec la société",
+        type: "autre",
+      },
+      {
+        slug: "ile-de-france",
+        label: "Île-de-France (Paris et départements limitrophes)",
         type: "autre",
       },
     ],
@@ -549,7 +554,7 @@ export const siteConfig: SiteConfig = {
     defaultTitle:
       "Carlier Ambulances Les Sablons – Transports sanitaires non urgents à Saint-Crépin-Ibouvillers",
     defaultDescription:
-      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers (Oise 60) et dans les communes voisines (Méru, Neuilly-en-Thelle, Chambly, Hénonville…) : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
+      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers (Oise 60), dans les communes voisines (Méru, Neuilly-en-Thelle, Chambly, Hénonville…) et vers l'Île-de-France (Paris et départements limitrophes) : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
     keywords: [
       "Carlier Ambulances Les Sablons",
       "ambulances Saint-Crépin-Ibouvillers",
@@ -564,6 +569,9 @@ export const siteConfig: SiteConfig = {
       "transport sanitaire Neuilly-en-Thelle",
       "ambulance Chambly",
       "transport sanitaire Chambly",
+      "ambulance Île-de-France",
+      "transport sanitaire Île-de-France",
+      "VSL Île-de-France",
     ],
   },
 };
