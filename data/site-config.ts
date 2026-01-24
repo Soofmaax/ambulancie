@@ -235,7 +235,7 @@ export const siteConfig: SiteConfig = {
         enabled: true,
         bulletPoints: [
           "Transport sanitaire assis réalisé sur prescription médicale de transport",
-          "Adapté notamment aux séances de dialyse, aux consultations régulières ou à la rééducation",
+          "Fréquemment utilisé pour les séances de dialyse, les consultations régulières, la rééducation ou les venues en hôpital de jour",
           "La prise en charge par l'Assurance Maladie dépend des conditions prévues par la réglementation en vigueur (à vérifier auprès de votre caisse)",
         ],
       },
@@ -247,8 +247,8 @@ export const siteConfig: SiteConfig = {
         enabled: true,
         bulletPoints: [
           "Accompagnement jusqu'au service ou au cabinet médical lorsque cela est prévu",
-          "Possibilité de prise en charge de personnes à mobilité réduite selon les capacités du véhicule",
-          "Organisation des horaires en cohérence avec l'heure de convocation",
+          "Prise en charge possible de personnes à mobilité réduite (PMR) selon les capacités du véhicule et les aides au transfert disponibles",
+          "Organisation des horaires en cohérence avec l'heure de convocation (consultations, hôpital de jour, examens programmés)",
         ],
       },
       {
@@ -278,8 +278,16 @@ export const siteConfig: SiteConfig = {
         id: "dialyse",
         label: "Séances de dialyse",
         items: [
-          "Aller-retour centre de dialyse",
-          "Organisation récurrente des créneaux de prise en charge",
+          "Aller-retour centre de dialyse ou unité de dialyse médicalisée",
+          "Organisation récurrente des créneaux de prise en charge pour les séances plurihebdomadaires",
+        ],
+      },
+      {
+        id: "hospitalisation-jour",
+        label: "Hospitalisation de jour & hôpital de jour",
+        items: [
+          "Transports pour hospitalisation de jour (médecine, chirurgie, oncologie, etc.)",
+          "Aller-retour pour soins itératifs réalisés en hôpital de jour",
         ],
       },
       {
@@ -287,7 +295,7 @@ export const siteConfig: SiteConfig = {
         label: "Rééducation & soins réguliers",
         items: [
           "Séances de kinésithérapie ou de rééducation",
-          "Suivi de soins programmés",
+          "Suivi de soins programmés en centre de rééducation ou en hôpital de jour",
         ],
       },
       {
@@ -413,11 +421,11 @@ export const siteConfig: SiteConfig = {
       },
     ],
     billing: {
-      isConventionne: false,
+      isConventionne: true,
       conventionLabel:
-        "TODO – Préciser si la société est conventionnée avec l'Assurance Maladie et les modalités de tiers payant.",
+        "Entreprise de transport sanitaire agréée et conventionnée avec l'Assurance Maladie (à confirmer et adapter selon la situation réelle de la société).",
       conventionDetail:
-        "Ces informations doivent être complétées et validées avec le client avant la mise en production du site.",
+        "Selon la prescription médicale de transport et votre situation, un tiers payant total ou partiel peut être applicable, conformément aux règles de l'Assurance Maladie et, le cas échéant, de votre organisme complémentaire. Ces éléments doivent être vérifiés et validés avec la société et les caisses concernées avant la mise en production.",
       transparencyNote:
         "La prise en charge financière d'un transport sanitaire dépend de la prescription médicale de transport et des critères d'éligibilité définis par l'Assurance Maladie. En cas de doute, les équipes peuvent vous orienter vers les informations officielles, sans se substituer à un avis médical. La société d'ambulances ne se substitue ni au médecin prescripteur ni à l'Assurance Maladie pour l'appréciation finale de la prise en charge.",
     },
