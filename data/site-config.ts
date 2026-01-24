@@ -432,6 +432,48 @@ export const siteConfig: SiteConfig = {
           "Coordination avec les services de soins pour organiser les horaires de prise en charge lorsque cela est nécessaire.",
         ],
       },
+      {
+        slug: "ile-de-france",
+        path: "/ambulance-ile-de-france",
+        type: "ambulance",
+        title:
+          "Ambulances en Île-de-France – Transports sanitaires non urgents sur prescription médicale",
+        intro:
+          "Organisation de transports en ambulance en Île-de-France (Paris et départements limitrophes) pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
+          "Transports possibles vers les principaux établissements de santé d'Île-de-France, selon les besoins et l'organisation retenue.",
+          "Étude au cas par cas des trajets de longue distance ou interrégionaux, en fonction des disponibilités et des contraintes médicales.",
+        ],
+      },
+      {
+        slug: "ile-de-france",
+        path: "/transport-sanitaire-ile-de-france",
+        type: "transport-sanitaire",
+        title:
+          "Transport sanitaire en Île-de-France – Ambulance, VSL & transport assis",
+        intro:
+          "Solutions de transport sanitaire programmées en Île-de-France : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+        specificPoints: [
+          "Choix du mode de transport (ambulance, VSL ou transport assis) en fonction de la prescription médicale et de la situation du patient.",
+          "Transports ponctuels ou réguliers pour consultations, hospitalisation de jour, rééducation ou séances de dialyse dans les établissements franciliens.",
+          "Organisation des horaires en tenant compte des heures de convocation et des contraintes de circulation en Île-de-France.",
+        ],
+      },
+      {
+        slug: "ile-de-france",
+        path: "/vsl-ile-de-france",
+        type: "vsl",
+        title:
+          "VSL en Île-de-France – Véhicules Sanitaires Légers pour vos rendez-vous médicaux",
+        intro:
+          "Mise à disposition de VSL en Île-de-France pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
+        specificPoints: [
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement vers les centres de soins en Île-de-France.",
+          "Possibilité de programmer des transports récurrents (consultations spécialisées, rééducation, hospitalisation de jour), dans le respect de la prescription.",
+          "Adaptation des trajets et des horaires aux contraintes de circulation de la région francilienne.",
+        ],
+      },
     ],
   },
   process: {

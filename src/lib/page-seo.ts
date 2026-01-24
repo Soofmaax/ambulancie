@@ -78,4 +78,22 @@ export const pageSeo = {
     description:
       "Page locale présentant le transport assis en VSL à Méru (Oise 60) et dans les communes voisines, sur prescription médicale de transport pour des rendez-vous médicaux programmés.",
   } as Metadata,
+  localAmbulanceIleDeFrance: {
+    title:
+      "Ambulances en Île-de-France – Transports sanitaires non urgents sur prescription",
+    description:
+      "Page locale présentant l'offre d'ambulances pour des transports sanitaires non urgents en Île-de-France (Paris et départements limitrophes), sur prescription médicale de transport.",
+  } as Metadata,
+  localTransportSanitaireIleDeFrance: {
+    title:
+      "Transport sanitaire en Île-de-France – Ambulance, VSL & transport assis",
+    description:
+      "Page locale présentant les solutions de transport sanitaire programmées en Île-de-France : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux sur prescription.",
+  } as Metadata,
+  localVslIleDeFrance: {
+    title:
+      "VSL en Île-de-France – Véhicules Sanitaires Légers pour vos rendez-vous médicaux",
+    description:
+      "Page locale présentant le transport assis en VSL en Île-de-France, sur prescription médicale de transport, pour des consultations, séances de rééducation ou hospitalisations de jour.",
+  } as Metadata,
 };
