@@ -311,7 +311,7 @@ export const siteConfig: SiteConfig = {
   zones: {
     mainCity: "Saint-Crépin-Ibouvillers",
     catchmentLabel:
-      "Secteur de Saint-Crépin-Ibouvillers et des communes voisines, dans le département de l'Oise (60).",
+      "Secteur de Saint-Crépin-Ibouvillers et des communes voisines, dans le département de l'Oise (60), à proximité de Méru, Neuilly-en-Thelle, Chambly et du sud du département.",
     items: [
       {
         slug: "saint-crepin-ibouvillers",
@@ -319,14 +319,29 @@ export const siteConfig: SiteConfig = {
         type: "principale",
       },
       {
-        slug: "commune-voisine-1",
-        label: "Commune voisine 1 (à préciser avec la société)",
+        slug: "meru",
+        label: "Méru",
         type: "voisine",
       },
       {
-        slug: "commune-voisine-2",
-        label: "Commune voisine 2 (à préciser avec la société)",
+        slug: "neuilly-en-thelle",
+        label: "Neuilly-en-Thelle",
         type: "voisine",
+      },
+      {
+        slug: "chambly",
+        label: "Chambly",
+        type: "voisine",
+      },
+      {
+        slug: "henonville",
+        label: "Hénonville",
+        type: "autre",
+      },
+      {
+        slug: "autres-communes-oise-sud",
+        label: "Autres communes du sud de l'Oise (60) – à préciser avec la société",
+        type: "autre",
       },
     ],
     localPagesExamples: [
@@ -335,12 +350,12 @@ export const siteConfig: SiteConfig = {
         path: "/ambulance-saint-crepin-ibouvillers",
         type: "ambulance",
         title:
-          "Ambulances à Saint-Crépin-Ibouvillers – Transport sanitaire non urgent",
+          "Ambulances à Saint-Crépin-Ibouvillers (Oise 60) – Transport sanitaire non urgent",
         intro:
-          "Organisation de transports en ambulance à Saint-Crépin-Ibouvillers et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+          "Organisation de transports en ambulance à Saint-Crépin-Ibouvillers, dans le sud de l'Oise (60), et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
         specificPoints: [
           "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
-          "Intervention sur Saint-Crépin-Ibouvillers et les communes alentours, en lien avec les structures de santé locales.",
+          "Intervention sur Saint-Crépin-Ibouvillers, Méru, Neuilly-en-Thelle, Chambly et les communes alentours, en lien avec les structures de santé locales.",
           "Planification des trajets pour limiter l'attente et respecter les horaires de convocation lorsqu'elles sont fixées.",
         ],
       },
@@ -349,13 +364,13 @@ export const siteConfig: SiteConfig = {
         path: "/transport-sanitaire-saint-crepin-ibouvillers",
         type: "transport-sanitaire",
         title:
-          "Transport sanitaire à Saint-Crépin-Ibouvillers – Ambulance, VSL & transport assis",
+          "Transport sanitaire à Saint-Crépin-Ibouvillers (Oise 60) – Ambulance, VSL & transport assis",
         intro:
-          "Solutions de transport sanitaire programmées à Saint-Crépin-Ibouvillers : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+          "Solutions de transport sanitaire programmées à Saint-Crépin-Ibouvillers et dans le sud de l'Oise (60) : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
         specificPoints: [
           "Orientation vers le type de véhicule (ambulance, VSL ou transport assis) correspondant à la prescription médicale.",
-          "Transports ponctuels ou réguliers pour dialyse, rééducation ou consultations spécialisées.",
-          "Coopération avec les établissements de santé pour organiser les arrivées et les retours dans la mesure du possible.",
+          "Transports ponctuels ou réguliers pour dialyse, rééducation, hôpital de jour ou consultations spécialisées dans les établissements du secteur.",
+          "Coopération avec les établissements de santé du département de l'Oise pour organiser les arrivées et les retours dans la mesure du possible.",
         ],
       },
       {
@@ -363,12 +378,12 @@ export const siteConfig: SiteConfig = {
         path: "/vsl-saint-crepin-ibouvillers",
         type: "vsl",
         title:
-          "VSL à Saint-Crépin-Ibouvillers – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
+          "VSL à Saint-Crépin-Ibouvillers (Oise 60) – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
         intro:
-          "Mise à disposition de VSL à Saint-Crépin-Ibouvillers pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
+          "Mise à disposition de VSL à Saint-Crépin-Ibouvillers et dans les communes voisines du sud de l'Oise (60) pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
         specificPoints: [
-          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement.",
-          "Trajets pour consultations, bilans, séances de dialyse ou de rééducation, selon les indications portées sur la prescription.",
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement vers les établissements de santé du secteur.",
+          "Trajets pour consultations, bilans, séances de dialyse, de rééducation ou en hôpital de jour, selon les indications portées sur la prescription.",
           "Organisation possible de transports récurrents sur plusieurs semaines lorsque cela est prévu.",
         ],
       },
@@ -494,16 +509,21 @@ export const siteConfig: SiteConfig = {
     defaultTitle:
       "Carlier Ambulances Les Sablons – Transports sanitaires non urgents à Saint-Crépin-Ibouvillers",
     defaultDescription:
-      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers et dans les communes voisines : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
+      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers (Oise 60) et dans les communes voisines (Méru, Neuilly-en-Thelle, Chambly, Hénonville…) : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
     keywords: [
       "Carlier Ambulances Les Sablons",
       "ambulances Saint-Crépin-Ibouvillers",
       "transport sanitaire Saint-Crépin-Ibouvillers",
       "VSL Saint-Crépin-Ibouvillers",
       "transport assis professionnalisé Saint-Crépin-Ibouvillers",
-      "transport médical non urgent Oise",
       "ambulance Oise 60",
       "transport sanitaire Oise 60",
+      "ambulance Méru",
+      "transport sanitaire Méru",
+      "ambulance Neuilly-en-Thelle",
+      "transport sanitaire Neuilly-en-Thelle",
+      "ambulance Chambly",
+      "transport sanitaire Chambly",
     ],
   },
 };
