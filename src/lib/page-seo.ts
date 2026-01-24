@@ -45,19 +45,20 @@ export const pageSeo = {
       "Informations sur la collecte, l'utilisation et la conservation des données personnelles dans le cadre du site vitrine et des formulaires de contact / demande de transport.",
   } as Metadata,
   localAmbulanceVilleExemple: {
-    title: `Ambulances à Ville exemple – Transport sanitaire non urgent`,
+    title:
+      "Ambulances à Saint-Crépin-Ibouvillers – Transport sanitaire non urgent",
     description:
-      "Page locale de démonstration pour les services d’ambulances à Ville exemple et dans les communes voisines, dans le cadre de transports sanitaires programmés sur prescription médicale.",
+      "Page locale de démonstration pour les services d’ambulances à Saint-Crépin-Ibouvillers et dans les communes voisines, dans le cadre de transports sanitaires programmés sur prescription médicale.",
   } as Metadata,
   localTransportSanitaireVilleExemple: {
     title:
-      "Transport sanitaire à Ville exemple – Ambulance, VSL & transport assis",
+      "Transport sanitaire à Saint-Crépin-Ibouvillers – Ambulance, VSL & transport assis",
     description:
-      "Page locale de démonstration présentant l'offre de transport sanitaire à Ville exemple : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux programmés sur prescription.",
+      "Page locale de démonstration présentant l'offre de transport sanitaire à Saint-Crépin-Ibouvillers : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux programmés sur prescription.",
   } as Metadata,
   localVslVilleExemple: {
-    title: "VSL à Ville exemple – Véhicule Sanitaire Léger",
+    title: "VSL à Saint-Crépin-Ibouvillers – Véhicule Sanitaire Léger",
     description:
-      "Page locale de démonstration pour le transport assis en VSL à Ville exemple, sur prescription médicale de transport pour des rendez-vous médicaux programmés.",
+      "Page locale de démonstration pour le transport assis en VSL à Saint-Crépin-Ibouvillers, sur prescription médicale de transport pour des rendez-vous médicaux programmés.",
   } as Metadata,
 };

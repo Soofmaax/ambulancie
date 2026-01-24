@@ -175,28 +175,28 @@ export interface SiteConfig {
  */
 export const siteConfig: SiteConfig = {
   business: {
-    brandName: "Ambulances Exemple",
+    brandName: "Carlier Ambulances Les Sablons",
     baseline: "Transports sanitaires non urgents sur prescription médicale",
-    legalName: "TODO – Raison sociale complète de la société d'ambulances",
-    siret: "TODO – Numéro SIRET / numéro d'enregistrement",
+    legalName: "CARLIER AMBULANCES LES SABLONS",
+    siret: "420 641 680 00038",
     legalMentions:
-      "TODO – Capital social, RCS / registre, coordonnées du responsable légal. À compléter et valider avant mise en production.",
+      "EURL au capital de 50 000 € – 420 641 680 RCS Beauvais – Siège social : 3 rue de l'Europe, 60149 Saint-Crépin-Ibouvillers – Gérant : M. Abdelhalim Chelda (informations à vérifier et compléter avant mise en production).",
   },
   contact: {
-    phoneMain: "01 23 45 67 89",
+    phoneMain: "À compléter",
     phoneSecondary: "",
-    email: "contact@ambulances-exemple.fr",
+    email: "À compléter",
     emailSecondary: "",
     emergencyMessage: "En cas d'urgence vitale, appelez le 15 (SAMU) ou le 112.",
     nonEmergencyClarification:
       "Ce site est destiné à l'organisation de transports sanitaires programmés sur prescription médicale. Il ne permet pas de solliciter une prise en charge en urgence vitale ni de recevoir un avis médical.",
     address: {
-      line1: "TODO – Adresse complète du siège ou de la base des ambulances",
-      postalCode: "00000",
-      city: "Ville principale",
+      line1: "3 rue de l'Europe",
+      postalCode: "60149",
+      city: "Saint-Crépin-Ibouvillers",
       country: "France",
       mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=TODO+adresse+ambulances",
+        "https://www.google.com/maps/search/?api=1&query=3+rue+de+l%27Europe+60149+Saint-Cr%C3%A9pin-Ibouvillers",
       latitude: undefined,
       longitude: undefined,
     },
@@ -309,48 +309,49 @@ export const siteConfig: SiteConfig = {
     ],
   },
   zones: {
-    mainCity: "Ville principale (à personnaliser)",
+    mainCity: "Saint-Crépin-Ibouvillers",
     catchmentLabel:
-      "TODO – Décrire brièvement la zone d'intervention (ex. agglomération, département, communes voisines).",
+      "Secteur de Saint-Crépin-Ibouvillers et des communes voisines, dans le département de l'Oise (60).",
     items: [
       {
-        slug: "ville-exemple",
-        label: "Ville exemple (à remplacer par la commune principale)",
+        slug: "saint-crepin-ibouvillers",
+        label: "Saint-Crépin-Ibouvillers",
         type: "principale",
       },
       {
         slug: "commune-voisine-1",
-        label: "Commune voisine 1 (à remplacer)",
+        label: "Commune voisine 1 (à préciser avec la société)",
         type: "voisine",
       },
       {
         slug: "commune-voisine-2",
-        label: "Commune voisine 2 (à remplacer)",
+        label: "Commune voisine 2 (à préciser avec la société)",
         type: "voisine",
       },
     ],
     localPagesExamples: [
       {
-        slug: "ville-exemple",
-        path: "/ambulance-ville-exemple",
+        slug: "saint-crepin-ibouvillers",
+        path: "/ambulance-saint-crepin-ibouvillers",
         type: "ambulance",
-        title: "Ambulances à Ville exemple – Transport sanitaire non urgent",
+        title:
+          "Ambulances à Saint-Crépin-Ibouvillers – Transport sanitaire non urgent",
         intro:
-          "Organisation de transports en ambulance à Ville exemple et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+          "Organisation de transports en ambulance à Saint-Crépin-Ibouvillers et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
         specificPoints: [
           "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
-          "Intervention sur Ville exemple et les communes alentours, en lien avec les structures de santé locales.",
+          "Intervention sur Saint-Crépin-Ibouvillers et les communes alentours, en lien avec les structures de santé locales.",
           "Planification des trajets pour limiter l'attente et respecter les horaires de convocation lorsqu'elles sont fixées.",
         ],
       },
       {
-        slug: "ville-exemple",
-        path: "/transport-sanitaire-ville-exemple",
+        slug: "saint-crepin-ibouvillers",
+        path: "/transport-sanitaire-saint-crepin-ibouvillers",
         type: "transport-sanitaire",
         title:
-          "Transport sanitaire à Ville exemple – Ambulance, VSL & transport assis",
+          "Transport sanitaire à Saint-Crépin-Ibouvillers – Ambulance, VSL & transport assis",
         intro:
-          "Solutions de transport sanitaire programmées à Ville exemple : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+          "Solutions de transport sanitaire programmées à Saint-Crépin-Ibouvillers : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
         specificPoints: [
           "Orientation vers le type de véhicule (ambulance, VSL ou transport assis) correspondant à la prescription médicale.",
           "Transports ponctuels ou réguliers pour dialyse, rééducation ou consultations spécialisées.",
@@ -358,13 +359,13 @@ export const siteConfig: SiteConfig = {
         ],
       },
       {
-        slug: "ville-exemple",
-        path: "/vsl-ville-exemple",
+        slug: "saint-crepin-ibouvillers",
+        path: "/vsl-saint-crepin-ibouvillers",
         type: "vsl",
         title:
-          "VSL à Ville exemple – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
+          "VSL à Saint-Crépin-Ibouvillers – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
         intro:
-          "Mise à disposition de VSL à Ville exemple pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
+          "Mise à disposition de VSL à Saint-Crépin-Ibouvillers pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
         specificPoints: [
           "Prise en charge assise pour les patients autonomes nécessitant un accompagnement.",
           "Trajets pour consultations, bilans, séances de dialyse ou de rééducation, selon les indications portées sur la prescription.",
@@ -491,18 +492,18 @@ export const siteConfig: SiteConfig = {
   },
   seo: {
     defaultTitle:
-      "Ambulances & transports sanitaires non urgents – Exemple de site vitrine",
+      "Carlier Ambulances Les Sablons – Transports sanitaires non urgents à Saint-Crépin-Ibouvillers",
     defaultDescription:
-      "Site vitrine de démonstration pour une société d’ambulances et de transports sanitaires non urgents intervenant sur prescription médicale. Présentation des services, zones d’intervention, modalités d’organisation et formulaire de demande de transport.",
+      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers et dans les communes voisines : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
     keywords: [
-      "ambulances",
-      "transport sanitaire",
-      "VSL",
-      "transport assis professionnalisé",
-      "transport médical non urgent",
-      "ambulance Ville exemple",
-      "VSL Ville exemple",
-      "transport sanitaire Ville exemple",
+      "Carlier Ambulances Les Sablons",
+      "ambulances Saint-Crépin-Ibouvillers",
+      "transport sanitaire Saint-Crépin-Ibouvillers",
+      "VSL Saint-Crépin-Ibouvillers",
+      "transport assis professionnalisé Saint-Crépin-Ibouvillers",
+      "transport médical non urgent Oise",
+      "ambulance Oise 60",
+      "transport sanitaire Oise 60",
     ],
   },
 };
