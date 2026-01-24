@@ -387,6 +387,46 @@ export const siteConfig: SiteConfig = {
           "Organisation possible de transports récurrents sur plusieurs semaines lorsque cela est prévu.",
         ],
       },
+      {
+        slug: "meru",
+        path: "/ambulance-meru",
+        type: "ambulance",
+        title: "Ambulances à Méru (Oise 60) – Transport sanitaire non urgent",
+        intro:
+          "Organisation de transports en ambulance à Méru et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
+          "Intervention sur Méru et les communes proches (Neuilly-en-Thelle, Chambly, Saint-Crépin-Ibouvillers…) en lien avec les structures de santé locales.",
+          "Transports vers les établissements hospitaliers du secteur, selon la prescription et l'organisation retenue.",
+        ],
+      },
+      {
+        slug: "meru",
+        path: "/transport-sanitaire-meru",
+        type: "transport-sanitaire",
+        title:
+          "Transport sanitaire à Méru (Oise 60) – Ambulance, VSL & transport assis",
+        intro:
+          "Solutions de transport sanitaire programmées à Méru : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+        specificPoints: [
+          "Orientation vers le type de véhicule (ambulance, VSL ou transport assis) correspondant à la prescription médicale et à la situation.",
+          "Transports ponctuels ou réguliers pour consultations, rééducation, hôpital de jour ou séances de dialyse dans les établissements de la région.",
+          "Organisation des horaires en fonction des heures de convocation et des contraintes des établissements de soins.",
+        ],
+      },
+      {
+        slug: "meru",
+        path: "/vsl-meru",
+        type: "vsl",
+        title: "VSL à Méru (Oise 60) – Véhicule Sanitaire Léger",
+        intro:
+          "Mise à disposition de VSL à Méru pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
+        specificPoints: [
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement vers les centres de soins de Méru et des communes voisines.",
+          "Trajets réguliers possibles pour consultations spécialisées, rééducation ou hospitalisation de jour, selon la prescription.",
+          "Coordination avec les services de soins pour organiser les horaires de prise en charge lorsque cela est nécessaire.",
+        ],
+      },
     ],
   },
   process: {

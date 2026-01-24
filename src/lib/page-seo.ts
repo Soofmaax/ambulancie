@@ -62,4 +62,20 @@ export const pageSeo = {
     description:
       "Page locale de démonstration pour le transport assis en VSL à Saint-Crépin-Ibouvillers (Oise 60) et dans les communes voisines, sur prescription médicale de transport pour des rendez-vous médicaux programmés.",
   } as Metadata,
+  localAmbulanceMeru: {
+    title: "Ambulances à Méru (Oise 60) – Transport sanitaire non urgent",
+    description:
+      "Page locale présentant l'offre d'ambulances à Méru (Oise 60) et dans les communes voisines pour des transports sanitaires non urgents programmés sur prescription médicale.",
+  } as Metadata,
+  localTransportSanitaireMeru: {
+    title:
+      "Transport sanitaire à Méru (Oise 60) – Ambulance, VSL & transport assis",
+    description:
+      "Page locale présentant les solutions de transport sanitaire à Méru (Oise 60) : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux programmés sur prescription.",
+  } as Metadata,
+  localVslMeru: {
+    title: "VSL à Méru (Oise 60) – Véhicule Sanitaire Léger",
+    description:
+      "Page locale présentant le transport assis en VSL à Méru (Oise 60) et dans les communes voisines, sur prescription médicale de transport pour des rendez-vous médicaux programmés.",
+  } as Metadata,
 };
