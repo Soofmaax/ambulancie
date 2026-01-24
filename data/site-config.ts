@@ -248,6 +248,7 @@ export const siteConfig: SiteConfig = {
         bulletPoints: [
           "Accompagnement jusqu'au service ou au cabinet médical lorsque cela est prévu",
           "Prise en charge possible de personnes à mobilité réduite (PMR) selon les capacités du véhicule et les aides au transfert disponibles",
+          "Possibilité de présence d'un accompagnant, lorsque la réglementation et la configuration du véhicule le permettent",
           "Organisation des horaires en cohérence avec l'heure de convocation (consultations, hôpital de jour, examens programmés)",
         ],
       },
@@ -336,6 +337,21 @@ export const siteConfig: SiteConfig = {
       {
         slug: "henonville",
         label: "Hénonville",
+        type: "autre",
+      },
+      {
+        slug: "cergy",
+        label: "Cergy",
+        type: "autre",
+      },
+      {
+        slug: "pontoise",
+        label: "Pontoise",
+        type: "autre",
+      },
+      {
+        slug: "argenteuil",
+        label: "Argenteuil",
         type: "autre",
       },
       {
@@ -474,6 +490,61 @@ export const siteConfig: SiteConfig = {
           "Adaptation des trajets et des horaires aux contraintes de circulation de la région francilienne.",
         ],
       },
+      {
+        slug: "cergy",
+        path: "/ambulance-cergy",
+        type: "ambulance",
+        title:
+          "Ambulances à Cergy (Île-de-France) – Transport sanitaire non urgent",
+        intro:
+          "Organisation de transports en ambulance à Cergy et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
+          "Intervention sur Cergy, Cergy-Pontoise et les communes voisines, en lien avec les établissements de santé du secteur.",
+          "Étude au cas par cas des trajets plus éloignés en Île-de-France, en fonction des disponibilités et des horaires de convocation.",
+        ],
+      },
+      {
+        slug: "cergy",
+        path: "/vsl-cergy",
+        type: "vsl",
+        title: "VSL à Cergy (Île-de-France) – Véhicule Sanitaire Léger",
+        intro:
+          "Mise à disposition de VSL à Cergy pour les transports assis sur prescription médicale de transport, notamment pour les consultations spécialisées et la rééducation.",
+        specificPoints: [
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement vers les centres de soins de Cergy et de l'agglomération de Cergy-Pontoise.",
+          "Possibilité de programmer des transports réguliers pour des rendez-vous médicaux récurrents, dans le respect de la prescription.",
+          "Organisation des horaires en tenant compte des contraintes de circulation locales et des heures de convocation.",
+        ],
+      },
+      {
+        slug: "pontoise",
+        path: "/ambulance-pontoise",
+        type: "ambulance",
+        title:
+          "Ambulances à Pontoise (Île-de-France) – Transports sanitaires non urgents",
+        intro:
+          "Organisation de transports en ambulance à Pontoise et dans l'agglomération de Cergy-Pontoise pour des rendez-vous médicaux programmés, sur prescription médicale de transport.",
+        specificPoints: [
+          "Transports en ambulance pour hospitalisations, examens ou retours à domicile lorsque cela est prévu par la prescription médicale.",
+          "Intervention sur Pontoise et les communes alentours, en coordination avec les structures de soins locales.",
+          "Trajets possibles vers les principaux établissements hospitaliers d'Île-de-France, étudiés au cas par cas avec le standard.",
+        ],
+      },
+      {
+        slug: "argenteuil",
+        path: "/ambulance-argenteuil",
+        type: "ambulance",
+        title:
+          "Ambulances à Argenteuil (Île-de-France) – Transport sanitaire non urgent",
+        intro:
+          "Organisation de transports en ambulance à Argenteuil et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisations, examens ou retours à domicile lorsque cela est prévu sur la prescription médicale.",
+          "Intervention sur Argenteuil et les communes proches, en lien avec les établissements de santé du secteur.",
+          "Organisation des trajets en tenant compte des horaires de convocation et des spécificités de circulation en Île-de-France.",
+        ],
+      },
     ],
   },
   process: {
@@ -553,6 +624,19 @@ export const siteConfig: SiteConfig = {
         "Une prescription médicale est-elle nécessaire pour organiser un transport ?",
       answer:
         "Dans la plupart des cas, oui. La prescription médicale de transport permet de déterminer le type de véhicule adapté et les conditions de prise en charge éventuelle par l'Assurance Maladie. Lors de votre appel, les équipes peuvent vous indiquer quels documents seront à présenter, sans se substituer aux indications de votre médecin prescripteur ni des organismes d'assurance maladie.",
+    },
+    {
+      id: "horaires-trajets",
+      question:
+        "Réalisez-vous des transports tôt le matin, le soir ou la nuit ?",
+      answer:
+        "Selon la demande, le type de transport et l'organisation des plannings, il est possible de programmer des transports très tôt le matin, en soirée ou de nuit, notamment pour des hospitalisations, des retours à domicile ou des consultations avec horaires spécifiques. Ces possibilités sont étudiées au cas par cas lors de la prise de contact, en fonction des disponibilités et des contraintes réglementaires.",
+    },
+    {
+      id: "accompagnant",
+      question: "Un accompagnant peut-il être présent pendant le transport ?",
+      answer:
+        "La présence d'un accompagnant peut être envisagée lorsque la réglementation le permet et que la configuration du véhicule offre une place disponible, sans compromettre la sécurité du patient et des équipes. Ce point est à préciser lors de la demande de transport, afin de vérifier les possibilités pour le trajet concerné.",
     },
     {
       id: "zones-desservies",

@@ -96,4 +96,26 @@ export const pageSeo = {
     description:
       "Page locale présentant le transport assis en VSL en Île-de-France, sur prescription médicale de transport, pour des consultations, séances de rééducation ou hospitalisations de jour.",
   } as Metadata,
+  localAmbulanceCergy: {
+    title: "Ambulances à Cergy (Île-de-France) – Transport sanitaire non urgent",
+    description:
+      "Page locale présentant les transports en ambulance à Cergy et dans les communes voisines, pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+  } as Metadata,
+  localVslCergy: {
+    title: "VSL à Cergy (Île-de-France) – Véhicule Sanitaire Léger",
+    description:
+      "Page locale présentant le transport assis en VSL à Cergy et dans le secteur de Cergy-Pontoise, sur prescription médicale de transport.",
+  } as Metadata,
+  localAmbulancePontoise: {
+    title:
+      "Ambulances à Pontoise (Île-de-France) – Transports sanitaires non urgents",
+    description:
+      "Page locale présentant les transports en ambulance à Pontoise et dans l'agglomération de Cergy-Pontoise, pour des hospitalisations, examens et retours à domicile programmés.",
+  } as Metadata,
+  localAmbulanceArgenteuil: {
+    title:
+      "Ambulances à Argenteuil (Île-de-France) – Transport sanitaire non urgent",
+    description:
+      "Page locale présentant les transports en ambulance à Argenteuil et dans les communes voisines, pour des rendez-vous médicaux programmés sur prescription.",
+  } as Metadata,
 };
