@@ -355,6 +355,16 @@ export const siteConfig: SiteConfig = {
         type: "autre",
       },
       {
+        slug: "beauvais",
+        label: "Beauvais",
+        type: "autre",
+      },
+      {
+        slug: "paris",
+        label: "Paris (différents arrondissements, dont Paris 17)",
+        type: "autre",
+      },
+      {
         slug: "autres-communes-oise-sud",
         label: "Autres communes du sud de l'Oise (60) – à préciser avec la société",
         type: "autre",
@@ -545,6 +555,132 @@ export const siteConfig: SiteConfig = {
           "Organisation des trajets en tenant compte des horaires de convocation et des spécificités de circulation en Île-de-France.",
         ],
       },
+      {
+        slug: "beauvais",
+        path: "/ambulance-beauvais",
+        type: "ambulance",
+        title:
+          "Ambulances à Beauvais (Oise 60) – Transport sanitaire non urgent",
+        intro:
+          "Organisation de transports en ambulance à Beauvais et dans les communes voisines pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile lorsque cela est prévu par la prescription médicale.",
+          "Intervention sur Beauvais et le bassin beauvaisien, en lien avec les structures de soins locales.",
+          "Trajets possibles vers les principaux établissements hospitaliers de l'Oise et d'Île-de-France, étudiés au cas par cas avec le standard.",
+        ],
+      },
+      {
+        slug: "beauvais",
+        path: "/transport-sanitaire-beauvais",
+        type: "transport-sanitaire",
+        title:
+          "Transport sanitaire à Beauvais (Oise 60) – Ambulance, VSL & transport assis",
+        intro:
+          "Solutions de transport sanitaire programmées à Beauvais : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+        specificPoints: [
+          "Choix du mode de transport (ambulance, VSL ou transport assis) en fonction de la prescription médicale et de la situation du patient.",
+          "Transports ponctuels ou réguliers pour consultations, rééducation, hospitalisation de jour ou séances de dialyse, selon les indications portées sur la prescription.",
+          "Organisation des horaires en tenant compte des heures de convocation et des contraintes de circulation autour de Beauvais.",
+        ],
+      },
+      {
+        slug: "beauvais",
+        path: "/vsl-beauvais",
+        type: "vsl",
+        title:
+          "VSL à Beauvais (Oise 60) – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
+        intro:
+          "Mise à disposition de VSL à Beauvais pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
+        specificPoints: [
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement vers les centres de soins de Beauvais et des communes alentours.",
+          "Possibilité de programmer des transports récurrents pour des consultations spécialisées, des séances de rééducation ou d'hôpital de jour.",
+          "Adaptation des trajets et des horaires aux contraintes de circulation locales et aux impératifs médicaux.",
+        ],
+      },
+      {
+        slug: "paris",
+        path: "/ambulance-paris",
+        type: "ambulance",
+        title:
+          "Ambulances à Paris – Transports sanitaires non urgents sur prescription",
+        intro:
+          "Organisation de transports en ambulance à Paris et dans les différents arrondissements pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisations, examens ou retours à domicile lorsque cela est prévu par la prescription médicale.",
+          "Transports possibles vers les principaux hôpitaux et cliniques parisiens, étudiés au cas par cas en fonction des disponibilités.",
+          "Organisation des trajets en tenant compte des horaires de convocation et des contraintes de circulation à Paris.",
+        ],
+      },
+      {
+        slug: "paris",
+        path: "/transport-sanitaire-paris",
+        type: "transport-sanitaire",
+        title:
+          "Transport sanitaire à Paris – Ambulance, VSL & transport assis",
+        intro:
+          "Solutions de transport sanitaire programmées à Paris : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+        specificPoints: [
+          "Choix du mode de transport (ambulance, VSL ou transport assis) en fonction de la prescription médicale et de la situation du patient.",
+          "Transports pour consultations, examens, hospitalisations de jour ou séances récurrentes dans les établissements parisiens.",
+          "Adaptation des horaires aux contraintes de circulation et aux heures de convocation dans la capitale.",
+        ],
+      },
+      {
+        slug: "paris",
+        path: "/vsl-paris",
+        type: "vsl",
+        title:
+          "VSL à Paris – Véhicules Sanitaires Légers pour vos rendez-vous médicaux",
+        intro:
+          "Mise à disposition de VSL à Paris pour les transports assis sur prescription médicale de transport, dans le cadre de rendez-vous médicaux programmés.",
+        specificPoints: [
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement dans Paris intra-muros.",
+          "Possibilité de programmer des transports récurrents pour des consultations spécialisées, de la rééducation ou une hospitalisation de jour.",
+          "Organisation des trajets en tenant compte des temps de déplacement en milieu urbain dense et des horaires de convocation.",
+        ],
+      },
+      {
+        slug: "paris",
+        path: "/ambulance-paris-17",
+        type: "ambulance",
+        title:
+          "Ambulances Paris 17 – Transport sanitaire non urgent dans le 17e arrondissement",
+        intro:
+          "Organisation de transports en ambulance dans le 17e arrondissement de Paris (Paris 17) pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge en ambulance pour hospitalisation, examens ou retour à domicile dans Paris 17 et les arrondissements limitrophes, lorsque cela est prévu par la prescription médicale.",
+          "Transports possibles vers les établissements hospitaliers parisiens, étudiés au cas par cas selon les besoins et les disponibilités.",
+          "Planification des trajets en tenant compte des contraintes de circulation propres au secteur (Batignolles, Ternes, etc.).",
+        ],
+      },
+      {
+        slug: "paris",
+        path: "/transport-sanitaire-paris-17",
+        type: "transport-sanitaire",
+        title:
+          "Transport sanitaire Paris 17 – Ambulance, VSL & transport assis",
+        intro:
+          "Solutions de transport sanitaire programmées dans le 17e arrondissement de Paris (Paris 17) : ambulance, VSL et transport assis professionnalisé, en appui des prescriptions médicales de transport.",
+        specificPoints: [
+          "Choix du mode de transport (ambulance, VSL ou transport assis) en fonction de la prescription médicale et de la situation du patient dans Paris 17.",
+          "Transports pour consultations, examens ou hospitalisations de jour dans les structures de soins parisiennes.",
+          "Organisation des horaires en tenant compte des temps de déplacement intra-muros et des impératifs médicaux.",
+        ],
+      },
+      {
+        slug: "paris",
+        path: "/vsl-paris-17",
+        type: "vsl",
+        title:
+          "VSL Paris 17 – Véhicules Sanitaires Légers pour vos rendez-vous médicaux",
+        intro:
+          "Mise à disposition de VSL dans le 17e arrondissement de Paris (Paris 17) pour les transports assis sur prescription médicale de transport.",
+        specificPoints: [
+          "Prise en charge assise pour les patients autonomes nécessitant un accompagnement dans Paris 17 et les quartiers limitrophes.",
+          "Possibilité de programmer des transports réguliers pour des consultations spécialisées, des séances de rééducation ou une hospitalisation de jour à Paris.",
+          "Adaptation des trajets et des horaires aux conditions de circulation dans le 17e arrondissement et les secteurs voisins.",
+        ],
+      },
     ],
   },
   process: {
@@ -680,7 +816,7 @@ export const siteConfig: SiteConfig = {
     defaultTitle:
       "Carlier Ambulances Les Sablons – Transports sanitaires non urgents à Saint-Crépin-Ibouvillers",
     defaultDescription:
-      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers (Oise 60), dans les communes voisines (Méru, Neuilly-en-Thelle, Chambly, Hénonville…) et vers l'Île-de-France (Paris et départements limitrophes) : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
+      "Carlier Ambulances Les Sablons assure des transports sanitaires non urgents sur prescription médicale à Saint-Crépin-Ibouvillers (Oise 60), dans les communes voisines (Méru, Neuilly-en-Thelle, Chambly, Hénonville, Beauvais…) et vers l'Île-de-France (Paris, Cergy, Pontoise, Argenteuil et départements limitrophes) : ambulances, VSL et transport assis professionnalisé, pour consultations, dialyse, hôpital de jour, rééducation et transferts entre établissements.",
     keywords: [
       "Carlier Ambulances Les Sablons",
       "ambulances Saint-Crépin-Ibouvillers",
@@ -689,15 +825,31 @@ export const siteConfig: SiteConfig = {
       "transport assis professionnalisé Saint-Crépin-Ibouvillers",
       "ambulance Oise 60",
       "transport sanitaire Oise 60",
+      "ambulance Beauvais",
+      "transport sanitaire Beauvais",
+      "VSL Beauvais",
       "ambulance Méru",
       "transport sanitaire Méru",
       "ambulance Neuilly-en-Thelle",
       "transport sanitaire Neuilly-en-Thelle",
       "ambulance Chambly",
       "transport sanitaire Chambly",
+      "ambulance Cergy",
+      "transport sanitaire Cergy",
+      "VSL Cergy",
+      "ambulance Pontoise",
+      "transport sanitaire Pontoise",
+      "ambulance Argenteuil",
+      "transport sanitaire Argenteuil",
       "ambulance Île-de-France",
       "transport sanitaire Île-de-France",
       "VSL Île-de-France",
+      "ambulance Paris",
+      "transport sanitaire Paris",
+      "VSL Paris",
+      "ambulance Paris 17",
+      "transport sanitaire Paris 17",
+      "VSL Paris 17",
     ],
   },
 };

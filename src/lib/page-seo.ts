@@ -118,4 +118,58 @@ export const pageSeo = {
     description:
       "Page locale présentant les transports en ambulance à Argenteuil et dans les communes voisines, pour des rendez-vous médicaux programmés sur prescription.",
   } as Metadata,
+  localAmbulanceBeauvais: {
+    title:
+      "Ambulances à Beauvais (Oise 60) – Transport sanitaire non urgent",
+    description:
+      "Page locale présentant les transports en ambulance à Beauvais et dans le bassin beauvaisien, pour des hospitalisations, examens et retours à domicile programmés sur prescription médicale.",
+  } as Metadata,
+  localTransportSanitaireBeauvais: {
+    title:
+      "Transport sanitaire à Beauvais (Oise 60) – Ambulance, VSL & transport assis",
+    description:
+      "Page locale présentant les solutions de transport sanitaire à Beauvais : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux programmés sur prescription.",
+  } as Metadata,
+  localVslBeauvais: {
+    title:
+      "VSL à Beauvais (Oise 60) – Véhicule Sanitaire Léger pour vos rendez-vous médicaux",
+    description:
+      "Page locale présentant le transport assis en VSL à Beauvais et dans les communes voisines, sur prescription médicale de transport pour des rendez-vous programmés.",
+  } as Metadata,
+  localAmbulanceParis: {
+    title:
+      "Ambulances à Paris – Transports sanitaires non urgents sur prescription",
+    description:
+      "Page locale présentant les transports en ambulance à Paris et dans les différents arrondissements pour des rendez-vous médicaux programmés sur prescription médicale de transport.",
+  } as Metadata,
+  localTransportSanitaireParis: {
+    title:
+      "Transport sanitaire à Paris – Ambulance, VSL & transport assis",
+    description:
+      "Page locale présentant les solutions de transport sanitaire à Paris : ambulance, VSL et transport assis professionnalisé pour des consultations, examens et hospitalisations programmées.",
+  } as Metadata,
+  localVslParis: {
+    title:
+      "VSL à Paris – Véhicules Sanitaires Légers pour vos rendez-vous médicaux",
+    description:
+      "Page locale présentant le transport assis en VSL à Paris, sur prescription médicale de transport, pour des consultations, séances de rééducation ou hospitalisations de jour.",
+  } as Metadata,
+  localAmbulanceParis17: {
+    title:
+      "Ambulances Paris 17 – Transport sanitaire non urgent dans le 17e arrondissement",
+    description:
+      "Page locale présentant les transports en ambulance dans le 17e arrondissement de Paris (Paris 17) et les secteurs limitrophes, pour des hospitalisations, examens et retours à domicile programmés sur prescription médicale.",
+  } as Metadata,
+  localTransportSanitaireParis17: {
+    title:
+      "Transport sanitaire Paris 17 – Ambulance, VSL & transport assis",
+    description:
+      "Page locale présentant les solutions de transport sanitaire dans le 17e arrondissement de Paris : ambulance, VSL et transport assis professionnalisé pour des rendez-vous médicaux programmés sur prescription.",
+  } as Metadata,
+  localVslParis17: {
+    title:
+      "VSL Paris 17 – Véhicules Sanitaires Légers pour vos rendez-vous médicaux",
+    description:
+      "Page locale présentant le transport assis en VSL dans le 17e arrondissement de Paris (Paris 17), sur prescription médicale de transport.",
+  } as Metadata,
 };
